@@ -82,4 +82,4 @@ Copia la cartella `dist` su un server web statico [file:4].
 ## Autori & Licenza
 
 Creato da Senior Software Architect – Snake Evolution Team.
-Licenza MIT o come indicato nel repository.
+Licenza MIT.
