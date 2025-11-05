@@ -30,11 +30,14 @@ class Game {
         this.musicEnabled = true;
         this.trail = [];
         this.particles = [];
+        this.backgroundMusic = null;
+        this.musicContext = null;
         
         this.initScreens();
         this.initControls();
         this.loadSettings();
         this.updateHighScore();
+        this.initBackgroundMusic();
     }
     
     initScreens() {
@@ -57,6 +60,11 @@ class Game {
         document.getElementById('music-toggle').addEventListener('change', (e) => {
             this.musicEnabled = e.target.checked;
             this.saveSettings();
+            if (this.musicEnabled) {
+                this.startBackgroundMusic();
+            } else {
+                this.stopBackgroundMusic();
+            }
         });
     }
     
@@ -167,6 +175,10 @@ class Game {
         this.updateEvolutionDisplay();
         
         this.showScreen('game-screen');
+        
+        if (this.musicEnabled) {
+            this.startBackgroundMusic();
+        }
         
         if (this.gameLoop) clearInterval(this.gameLoop);
         this.gameLoop = setInterval(() => this.update(), BASE_SPEED / this.currentStage.speed);
@@ -496,6 +508,7 @@ class Game {
     
     exitToMenu() {
         if (this.gameLoop) clearInterval(this.gameLoop);
+        this.stopBackgroundMusic();
         this.hideScreen('pause-screen');
         this.hideScreen('gameover-screen');
         this.hideScreen('game-screen');
@@ -566,6 +579,78 @@ class Game {
         if (musicEnabled !== null) {
             this.musicEnabled = musicEnabled === 'true';
             document.getElementById('music-toggle').checked = this.musicEnabled;
+        }
+    }
+    
+    initBackgroundMusic() {
+        this.musicContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    
+    startBackgroundMusic() {
+        if (!this.musicEnabled || this.backgroundMusic) return;
+        
+        if (this.musicContext.state === 'suspended') {
+            this.musicContext.resume();
+        }
+        
+        this.playBackgroundLoop();
+    }
+    
+    playBackgroundLoop() {
+        if (!this.musicEnabled) return;
+        
+        const tempo = 0.15;
+        const melody = [
+            { freq: 523.25, duration: tempo },
+            { freq: 587.33, duration: tempo },
+            { freq: 659.25, duration: tempo },
+            { freq: 587.33, duration: tempo },
+            { freq: 523.25, duration: tempo },
+            { freq: 493.88, duration: tempo },
+            { freq: 440.00, duration: tempo },
+            { freq: 493.88, duration: tempo }
+        ];
+        
+        const now = this.musicContext.currentTime;
+        let time = now;
+        
+        melody.forEach(note => {
+            const oscillator = this.musicContext.createOscillator();
+            const gainNode = this.musicContext.createGain();
+            
+            oscillator.type = 'triangle';
+            oscillator.frequency.setValueAtTime(note.freq, time);
+            
+            gainNode.gain.setValueAtTime(0, time);
+            gainNode.gain.linearRampToValueAtTime(0.08, time + 0.01);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, time + note.duration);
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(this.musicContext.destination);
+            
+            oscillator.start(time);
+            oscillator.stop(time + note.duration);
+            
+            time += note.duration;
+        });
+        
+        const totalDuration = melody.reduce((sum, note) => sum + note.duration, 0);
+        this.backgroundMusic = setTimeout(() => {
+            this.backgroundMusic = null;
+            if (this.musicEnabled) {
+                this.playBackgroundLoop();
+            }
+        }, totalDuration * 1000);
+    }
+    
+    stopBackgroundMusic() {
+        if (this.backgroundMusic) {
+            clearTimeout(this.backgroundMusic);
+            this.backgroundMusic = null;
+        }
+        
+        if (this.musicContext && this.musicContext.state === 'running') {
+            this.musicContext.suspend();
         }
     }
 }
