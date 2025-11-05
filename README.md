@@ -81,5 +81,11 @@ Copia la cartella `dist` su un server web statico [file:4].
 
 ## Autori & Licenza
 
-Creato da Senior Software Architect – Snake Evolution Team.
+Creato da: Snake Evo Team
+ - Ahmed Rihane
+ - Amine Mouzekki
+ - Danilo Schiavone
+ - Daniele Marinelli
+ - Matteo Torchia
+
 Licenza MIT.
