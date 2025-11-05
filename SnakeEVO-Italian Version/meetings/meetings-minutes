@@ -1,0 +1,222 @@
+# Status Meeting Minutes - 05/11/2025 14:43
+
+**Participants:**
+- Daniele Marinelli
+- Matteo Torchia
+- Aminee Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+## Decisions taken:
+- Creation of repository, research on the videogame 'Snake' and PRD file
+- Creation of the meeting minutes file
+
+# Action items
+| Assigned to | Task | Planned deadline |
+| :-- | :-- | :-- |
+| Danilo | Creation of the functional analysis document | 06/11/2025 |
+| Amine | Creation of the technical analysis document | 06/11/2025 |
+| Daniele | Continuation of the minutes day by day | 15/11/2025 |
+
+
+
+# Status Meeting Minutes - 06/11/2025 14:53
+
+**Participants:**
+- Daniele Marinelli
+- Matteo Torchia
+- Aminee Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+## Decisions taken:
+- Creation of functional analysis and technical analysis files
+
+# Action items
+| Assigned to | Task | Planned deadline |
+| :-- | :-- | :-- |
+| Matteo | Creation of the quality assurance document | 07/11/2025 |
+
+
+
+# Status Meeting Minutes - 07/11/2025 15:03
+
+**Participants:**
+- Daniele Marinelli
+- Matteo Torchia
+- Aminee Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+## Decisions taken:
+- Creation of the quality assurance document 
+
+# Action items
+| Assigned to | Task | Planned deadline |
+| :-- | :-- | :-- |
+| Ahmed | Q&A per Snake Evo 1.0 | 08/11/2025 |
+
+
+
+# Status Meeting Minutes - 08/11/2025 15:13
+
+**Participants:**
+- Daniele Marinelli
+- Matteo Torchia
+- Aminee Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+## Decisions taken:
+- Q&A ci ha fatto modificare i tre documenti di Snake Evo 1.0 creandone di nuovi per Snake Evo 2.0
+
+# Action items
+| Assigned to | Task | Planned deadline |
+| :-- | :-- | :-- |
+| Amine | Repository cleanup/organization | 09/11/2025 |
+| Matteo | Deletion of the 'Snake 1' folder | 09/11/2025 |
+
+
+
+# Status Meeting Minutes - 09/11/2025 15:23
+
+**Participants:**
+- Daniele Marinelli
+- Matteo Torchia
+- Aminee Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+## Decisions taken:
+- Repository cleanup/organization e assegnazione ruoli per sviluppo gioco
+- Creation of translation file /meetings-minutes
+- Deletion of the 'Snake 1' folder
+
+# Action items
+| Assigned to | Task | Planned deadline |
+| :-- | :-- | :-- |
+| Ahmed | Creation of ReadMe file | 10/11/2025 |
+| Amine | Creation of a development account on Replit | 10/11/2025 |
+| Danilo | Creation of documents for DevOps and CI/CD | 10/11/2025 |
+
+
+
+# Status Meeting Minutes - 10/11/2025 15:33
+
+**Participants:**
+- Daniele Marinelli
+- Matteo Torchia
+- Aminee Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+## Decisions taken:
+- Creation of ReadMe file
+- Creation of documents for DevOps and CI/CD
+- Creation of a development account on Replit
+
+# Action items
+| Assigned to | Task | Planned deadline |
+| :-- | :-- | :-- |
+| Aminee | Game development via Replit | 11/11/2025 |
+| Danilo | Addition of improvements | 11/11/2025 |
+
+
+# Status Meeting Minutes - 11/11/2025 15:43
+
+**Participants:**
+- Daniele Marinelli
+- Matteo Torchia
+- Aminee Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+## Decisions taken:
+- Addition of improvements, aggiunta di file log
+- Game development via Replit in versione preview nella versione 2.0, importando la repository da github
+
+# Action items
+| Assigned to | Task | Planned deadline |
+| :-- | :-- | :-- |
+| Danilo | Creation of a direct prompt for Replit | 12/11/2025 |
+| Matteo | Summary of deliverables | 12/11/2025 |
+
+
+
+
+# Status Meeting Minutes - 12/11/2025 15:53
+
+**Participants:**
+- Daniele Marinelli
+- Matteo Torchia
+- Aminee Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+## Decisions taken:
+- Creation of a direct prompt for Replit
+- Application of the prompt for development
+- Summary of deliverables
+
+# Action items
+| Assigned to | Task | Planned deadline |
+| :-- | :-- | :-- |
+| Aminee | Q&A for the new version of Snake (version 2.0) | 13/11/2025 |
+
+
+
+
+# Status Meeting Minutes - 13/11/2025 16:03
+
+**Participants:**
+- Daniele Marinelli
+- Matteo Torchia
+- Aminee Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+## Decisions taken:
+- Q&A for the new version of Snake (version 2.0)
+
+# Action items
+| Assigned to | Task | Planned deadline |
+| :-- | :-- | :-- |
+| Danilo | Localization of the code into multiple languages using i18n technology | 14/11/2025 |
+
+
+
+
+# Status Meeting Minutes - 14/11/2025 16:13
+
+**Participants:**
+- Daniele Marinelli
+- Matteo Torchia
+- Aminee Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+## Decisions taken:
+- Localization of the code into multiple languages using i18n technology
+
+# Action items
+| Assigned to | Task | Planned deadline |
+| :-- | :-- | :-- |
+| Matteo | Translation of all files into English | 15/11/2025 |
+| Matteo | Translation of the minutes into English | 15/11/2025 |
+| Daniele | Completion of the minutes | 15/11/2025 |
+
+
+
+
+# Status Meeting Minutes - 15/11/2025 16:23
+
+**Participants:**
+- Daniele Marinelli
+- Matteo Torchia
+- Aminee Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+## Decisions taken:
+- Creation of an international folder and translation of files into English, including the minutes
+- Completion of the minutes
