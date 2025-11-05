@@ -1,0 +1,424 @@
+# 🎮 SNAKE EVOLUTION - LLM AGENT QUICK START
+## Get Started Immediately with Clear Instructions
+
+---
+
+## 📌 YOUR MISSION
+
+You are building **Snake Evolution v2.1** - a production-grade arcade game in **8 weeks** using:
+- **Vanilla JavaScript** (no frameworks)
+- **Test-Driven Development (TDD)**
+- **Git workflow** with feature branches
+- **Replit + GitHub** integration
+- **Jest testing** with 85%+ coverage target
+
+**Total Tasks:** 31  
+**Estimated Time:** 8 weeks  
+**Daily Commits:** Yes  
+
+---
+
+## 🎯 WHAT YOU HAVE
+
+### 📚 Documentation (7 Files - 74 Pages)
+1. **PRD-v2-1-SnakeEvolution-FINAL.pdf** - What to build (business requirements)
+2. **Analisi-Funzionale-v2-1-FINAL.pdf** - How the architecture works
+3. **Analisi-Tecnica-v2-1-FINAL.pdf** - Implementation details
+4. **DevOps-CI-CD-v2-SnakeEvolution.pdf** - CI/CD pipeline setup
+5. **Implementation-Guide-v2-SnakeEvolution.pdf** - Development workflow
+6. **Logging-Configuration-v2-SnakeEvolution.pdf** - Monitoring & logging
+7. **Deployment-Operations-v2-SnakeEvolution.pdf** - Production deployment
+
+### 🛠️ Tools
+- **Replit** - IDE + sandbox environment
+- **GitHub** - Version control + CI/CD
+- **Netlify** - Hosting (automatic deployment)
+- **Jest** - Testing framework
+- **Webpack** - Module bundling
+- **ESLint/Prettier** - Code quality
+
+### 📋 Reference Files
+- **LLM-CODING-MASTER-PROMPT.md** - Comprehensive development guide
+- **TASK_TRACKER-template.md** - Progress tracking (use in your repo)
+- **REPLIT_GITHUB_WORKFLOW-guide.md** - Daily workflow reference
+
+---
+
+## ⚡ 5-MINUTE SETUP
+
+### Step 1: Clone Repository
+```bash
+git clone https://github.com/yourusername/snake-evolution.git
+cd snake-evolution
+```
+
+### Step 2: Install & Verify
+```bash
+npm install
+node --version          # Should be 18.x+
+npm --version           # Should be 9.x+
+npm run dev             # Start localhost:8080 (CTRL+C to stop)
+npm test                # Should pass (0 tests initially)
+npm run lint            # Should pass (0 errors)
+```
+
+### Step 3: Create TASK_TRACKER
+Copy the content from **TASK_TRACKER-template.md** into your repo:
+```bash
+cp TASK_TRACKER-template.md TASK_TRACKER.md
+git add TASK_TRACKER.md
+git commit -m "docs: add task tracker"
+git push origin main
+```
+
+### ✅ Done! Ready to develop
+
+---
+
+## 🚦 THE TDD CYCLE (Your Daily Routine)
+
+### For EACH Feature/Task:
+
+#### 1️⃣ RED - Write Failing Test
+```javascript
+// tests/unit/snake.test.js
+describe('Snake', () => {
+  test('should initialize with 3 segments', () => {
+    const snake = new Snake();
+    expect(snake.segments.length).toBe(3);
+  });
+});
+
+// Run: npm test
+// Result: FAIL ❌
+```
+
+#### 2️⃣ GREEN - Write Minimum Code
+```javascript
+// src/entities/Snake.js
+class Snake {
+  constructor() {
+    this.segments = [
+      { x: 10, y: 10 },
+      { x: 9, y: 10 },
+      { x: 8, y: 10 }
+    ];
+  }
+}
+
+// Run: npm test
+// Result: PASS ✅
+```
+
+#### 3️⃣ REFACTOR - Improve Code
+```javascript
+// Optimize, add comments, improve structure
+class Snake {
+  constructor(gridSize = 20) {
+    const centerX = Math.floor(gridSize / 2);
+    this.segments = [
+      { x: centerX, y: centerX },
+      { x: centerX - 1, y: centerX },
+      { x: centerX - 2, y: centerX }
+    ];
+  }
+}
+
+// Run: npm test
+// Result: PASS ✅ (still)
+```
+
+#### 4️⃣ COMMIT - Save Your Work
+```bash
+git add .
+git commit -m "feat: implement Snake entity with movement"
+git push origin feature/snake-entity
+```
+
+**Repeat this cycle for each test!**
+
+---
+
+## 📦 8-WEEK PLAN (HIGH LEVEL)
+
+```
+WEEK 1: ⚙️  Setup (webpack, jest, project structure)
+WEEK 2: 🎮 Core Game (snake, collision, grid, food)
+WEEK 3: ⭐ Evolution (5-stage progression, input validation)
+WEEK 4: 🎨 UI (scenes, rendering, leaderboard)
+WEEK 5: 🔧 Quality (state machine, profiler, error handling)
+WEEK 6: 🧪 Testing (property-based, chaos, integration)
+WEEK 7: 🚀 Deployment (CI/CD, webpack, Netlify setup)
+WEEK 8: 🎯 Launch (final QA, production, monitoring)
+
+Current: Week 1 → Task 1: Project Setup
+```
+
+---
+
+## 🎯 THIS WEEK'S GOALS (Week 1)
+
+### Task 1.1 - Initialize Replit Project ✓ (Start Here!)
+**What:** Clone repo, install deps, verify Node.js/npm  
+**Expected:** `npm run dev` works on localhost:8080
+
+```bash
+# In Replit Shell:
+git clone https://github.com/yourusername/snake-evolution.git
+cd snake-evolution
+npm install
+npm run dev      # Should show: "webpack dev server running..."
+```
+
+### Task 1.2 - Configure Build Tools
+**What:** Setup webpack (dev + prod modes), Babel  
+**Expected:** Production bundle built successfully
+
+```bash
+npm run build    # Creates dist/ folder
+npm run analyze  # Shows bundle breakdown
+```
+
+### Task 1.3 - Setup Testing Infrastructure
+**What:** Configure Jest, create mocks for Canvas/Audio  
+**Expected:** Jest runs, mocks working
+
+```bash
+npm test         # Should show: 0 tests, 0 failures
+```
+
+### Task 1.4 - Configure Quality Tools
+**What:** ESLint, Prettier, pre-commit hooks  
+**Expected:** Zero linting errors
+
+```bash
+npm run lint     # Should show: 0 errors
+```
+
+### Task 1.5 - Create Project Structure
+**What:** Generate all dirs/files from spec  
+**Expected:** All 31 source files created with stubs
+
+```bash
+# You'll create folders:
+src/core/ src/entities/ src/systems/ src/ui/ src/storage/ 
+src/events/ src/utils/ src/config/
+tests/unit/ tests/integration/ tests/chaos/
+
+# And files like:
+src/main.js, src/index.html, src/style.css, etc.
+```
+
+---
+
+## ✅ END OF WEEK 1 CHECKLIST
+
+- [ ] Replit environment ready (`npm run dev` works)
+- [ ] Dependencies installed (`npm install` completed)
+- [ ] Webpack configured (dev + prod builds)
+- [ ] Jest running (0 tests, 0 failures)
+- [ ] ESLint configured (0 errors)
+- [ ] All project folders created
+- [ ] All stub files created
+- [ ] TASK_TRACKER.md created and tracking progress
+- [ ] First feature branch created: `git checkout -b feature/phase-1-setup`
+- [ ] 5 commits made with meaningful messages
+- [ ] GitHub Actions passing (green checkmark)
+
+---
+
+## 💡 DAILY ROUTINE
+
+### Morning (10 min)
+```bash
+# 1. Pull latest changes
+git pull origin main
+
+# 2. Check status
+git status
+
+# 3. Run tests
+npm test
+```
+
+### During Work (Throughout day)
+```bash
+# 1. Follow TDD cycle: RED → GREEN → REFACTOR
+# 2. After each test passes:
+git add .
+git commit -m "feat: description"
+
+# 3. Keep updating TASK_TRACKER.md
+```
+
+### Evening (10 min)
+```bash
+# 1. Verify everything works
+npm test -- --coverage
+npm run lint
+
+# 2. Final commit
+git add TASK_TRACKER.md
+git commit -m "update: progress tracker - X% complete"
+
+# 3. Push to GitHub
+git push origin feature/current-feature
+```
+
+---
+
+## 🎮 QUICK COMMAND REFERENCE
+
+```bash
+# Development
+npm run dev              # Start dev server
+npm test                 # Run tests
+npm test -- --watch     # Watch mode
+npm run build            # Production build
+npm run lint             # Check code quality
+npm run lint:fix         # Auto-fix issues
+
+# Git
+git status               # Current status
+git log --oneline -5     # Last 5 commits
+git branch -a            # All branches
+git pull origin main     # Get latest
+git push origin feature  # Push branch
+
+# Debugging
+npm test -- --verbose   # Detailed test output
+npm run analyze          # Bundle analysis
+npm run dev -- --port 3000  # Different port
+```
+
+---
+
+## 🚨 IF YOU GET STUCK
+
+### Problem: `npm install` fails
+```bash
+# Clear cache and retry
+npm cache clean --force
+rm -rf node_modules package-lock.json
+npm install
+```
+
+### Problem: Tests not updating
+```bash
+# Clear Jest cache
+npx jest --clearCache
+npm test
+```
+
+### Problem: Webpack dev server won't start
+```bash
+# Kill process on port 8080 and restart
+# macOS/Linux:
+lsof -ti:8080 | xargs kill -9
+# Windows: Use Task Manager
+npm run dev
+```
+
+### Problem: Git conflicts
+```bash
+# Abort merge if unsure
+git merge --abort
+
+# Or resolve conflicts manually
+# Then: git add . && git commit -m "fix: merge conflicts"
+```
+
+### Problem: Want to undo last commit
+```bash
+# If not pushed:
+git reset --soft HEAD~1    # Keep changes
+git reset --hard HEAD~1    # Discard changes
+```
+
+---
+
+## 🔗 KEY RESOURCES
+
+**In Your Repository:**
+- 📋 `TASK_TRACKER.md` - Your progress (UPDATE DAILY)
+- 📖 `LLM-CODING-MASTER-PROMPT.md` - Full development guide
+- 🔄 `REPLIT_GITHUB_WORKFLOW-guide.md` - Daily workflow
+
+**On GitHub:**
+- 📁 `.github/workflows/ci-cd.yml` - CI/CD pipeline
+- 📄 `netlify.toml` - Hosting configuration
+
+**In GitHub Documents:**
+- 📕 7 comprehensive documentation PDFs (read as needed)
+
+---
+
+## 🎯 SUCCESS METRICS
+
+**Daily:**
+- ✅ Tests passing
+- ✅ Linting clean (0 errors)
+- ✅ 1-3 meaningful commits
+- ✅ TASK_TRACKER updated
+
+**Weekly:**
+- ✅ Phase completed
+- ✅ 5+ features implemented
+- ✅ 85%+ test coverage (for completed modules)
+- ✅ 0 blocking issues
+
+**At Launch (Week 8):**
+- ✅ 31/31 tasks completed (100%)
+- ✅ 85%+ overall test coverage
+- ✅ Lighthouse score 90+
+- ✅ Bundle size < 1MB (gzipped)
+- ✅ 60 FPS performance
+- ✅ Deployed to production
+- ✅ CI/CD fully automated
+
+---
+
+## 🚀 NEXT STEPS
+
+1. ✅ Read this file (done!)
+2. 📖 Scan **LLM-CODING-MASTER-PROMPT.md** for overview
+3. 🔄 Read **REPLIT_GITHUB_WORKFLOW-guide.md** for daily process
+4. 🎬 Start Phase 1, Task 1.1 (Project Setup)
+5. 📝 Create feature branch: `git checkout -b feature/phase-1-setup`
+6. 📋 Update TASK_TRACKER.md as you progress
+7. 🎮 Implement first test (RED → GREEN → REFACTOR)
+8. 💾 Make meaningful commits
+9. 📤 Push to GitHub daily
+10. 🎉 Celebrate progress!
+
+---
+
+## 📞 NEED HELP?
+
+1. **Understanding a task?** → Check **LLM-CODING-MASTER-PROMPT.md**
+2. **Git workflow issues?** → Check **REPLIT_GITHUB_WORKFLOW-guide.md**
+3. **Implementation questions?** → Check relevant PDF documentation
+4. **Test failing?** → Run `npm test -- --verbose` for details
+5. **Build issues?** → Run `npm run build -- --verbose` for details
+
+---
+
+## 🎉 YOU'RE READY!
+
+You have:
+- ✅ Complete documentation (74 pages)
+- ✅ Clear 8-week plan
+- ✅ TDD methodology
+- ✅ Git workflow setup
+- ✅ Replit + GitHub integration
+- ✅ 31 well-defined tasks
+- ✅ Progress tracking system
+
+**Now go build something amazing! 🚀**
+
+---
+
+**Start Date:** November 5, 2025  
+**Target Completion:** December 30, 2025  
+**Current Phase:** 1/8  
+**Current Task:** 1.1 - Initialize Replit Project

@@ -1,0 +1,399 @@
+# REPLIT_GITHUB_WORKFLOW.md
+## Quick Reference Guide for Daily Development
+
+---
+
+## 🚀 FIRST TIME SETUP (Do Once)
+
+### Step 1: Clone Repository in Replit
+```bash
+# Go to Replit Shell tab (bottom)
+git clone https://github.com/yourusername/snake-evolution.git
+cd snake-evolution
+```
+
+### Step 2: Install Dependencies
+```bash
+npm install
+# This installs webpack, jest, eslint, prettier, all dev tools
+```
+
+### Step 3: Verify Installation
+```bash
+node --version        # Should be 18.x or higher
+npm --version         # Should be 9.x or higher
+npm run dev           # Should start on localhost:8080
+# CTRL+C to stop
+```
+
+### Step 4: Copy Environment Files
+```bash
+cp .env.example .env.local
+# Edit .env.local if needed
+```
+
+### Step 5: First Git Commit
+```bash
+git add .
+git commit -m "initial: project setup in Replit"
+git push origin main
+# GitHub Actions CI/CD will automatically test
+```
+
+---
+
+## 📅 DAILY WORKFLOW
+
+### Morning: Start Development
+```bash
+# 1. Pull latest changes
+git pull origin main
+
+# 2. Verify everything still works
+npm test              # Should pass
+npm run lint          # Should have 0 errors
+```
+
+### During Development: Feature Work
+
+#### Step 1: Create Feature Branch
+```bash
+# Always create a new branch for each feature
+git checkout -b feature/snake-entity
+
+# Naming conventions:
+# - feature/xxx      = new feature
+# - fix/xxx          = bug fix
+# - test/xxx         = test additions
+# - refactor/xxx     = code refactoring
+```
+
+#### Step 2: TDD Cycle (RED → GREEN → REFACTOR)
+
+**A) RED Phase - Write Failing Test**
+```bash
+# Create test file: tests/unit/snake.test.js
+# Write test that FAILS
+
+npm test -- tests/unit/snake.test.js
+# Output: FAIL ❌
+
+# 💡 TIP: Use this template in your test file:
+describe('Snake', () => {
+  test('should initialize with 3 segments', () => {
+    const snake = new Snake();
+    expect(snake.segments.length).toBe(3);
+  });
+});
+```
+
+**B) GREEN Phase - Write Minimum Code**
+```bash
+# Create implementation: src/entities/Snake.js
+# Write minimum code to make test pass
+
+npm test -- tests/unit/snake.test.js
+# Output: PASS ✅
+
+# 💡 TIP: Just make the test pass, don't over-engineer
+```
+
+**C) REFACTOR Phase - Improve Code**
+```bash
+# Optimize, add comments, improve structure
+# Keep tests passing
+
+npm test -- tests/unit/snake.test.js
+# Output: PASS ✅
+```
+
+#### Step 3: Commit After Each Test
+```bash
+# After each feature is tested and working:
+git add .
+git commit -m "feat: implement Snake entity with movement mechanics"
+
+# Commit message format:
+# feat: <description>        = new feature
+# fix: <description>         = bug fix
+# test: <description>        = test additions
+# refactor: <description>    = refactoring
+```
+
+#### Step 4: Verify Code Quality
+```bash
+# Before committing, always check:
+npm test -- --coverage          # Run tests + coverage
+npm run lint                    # Check linting
+npm run format                  # Auto-format code
+
+# Fix any issues:
+npm run lint:fix               # Auto-fix linting issues
+```
+
+#### Step 5: Push to GitHub
+```bash
+# After feature complete:
+git push origin feature/snake-entity
+
+# 🤖 Automatic: GitHub Actions will:
+# 1. Run ESLint (0 errors required)
+# 2. Run Jest tests (85%+ coverage required)
+# 3. Build bundle
+# 4. Check bundle size
+# 5. Report results (green checkmark = all pass)
+```
+
+#### Step 6: Create Pull Request (Optional for Solo Dev)
+```bash
+# On GitHub: Create PR from feature/snake-entity → main
+# Check that GitHub Actions passed (green checkmark)
+# Self-review code
+# Merge when ready
+```
+
+#### Step 7: Merge to Main
+```bash
+# Option A: Merge via GitHub UI
+# Option B: Merge locally
+git checkout main
+git pull origin main
+git merge feature/snake-entity
+git push origin main
+
+# 🤖 Automatic: Deploys to Netlify after merge
+```
+
+#### Step 8: Update TASK_TRACKER
+```bash
+# After task complete:
+# 1. Open TASK_TRACKER.md
+# 2. Mark task as COMPLETED
+# 3. Update progress percentage
+# 4. Add commit hash
+# 5. Commit: git add TASK_TRACKER.md && git commit -m "update: progress"
+```
+
+---
+
+## 📊 USEFUL COMMANDS
+
+### Testing
+```bash
+npm test                           # Run all tests
+npm test -- --coverage            # With coverage report
+npm test -- --watch               # Watch mode (re-run on changes)
+npm test -- --coverage --watch    # Coverage + watch
+npm test -- tests/unit/snake.test.js  # Run specific test file
+npm test -- -t "should move"      # Run tests matching pattern
+```
+
+### Linting & Formatting
+```bash
+npm run lint                       # Check for lint errors
+npm run lint:fix                   # Auto-fix lint errors
+npm run format                     # Format code with Prettier
+npm run format:check               # Check formatting without changes
+```
+
+### Building
+```bash
+npm run dev                        # Start dev server (http://localhost:8080)
+npm run build                      # Build production bundle
+npm run analyze                    # Analyze bundle size
+```
+
+### Git
+```bash
+git status                         # Show current status
+git log --oneline -10              # Show last 10 commits
+git branch -a                      # Show all branches
+git branch -D feature/old          # Delete old feature branch
+git stash                          # Save uncommitted work
+git stash pop                      # Restore stashed work
+```
+
+---
+
+## ⚠️ COMMON PITFALLS & FIXES
+
+### Problem: `npm test` fails after git pull
+**Solution:**
+```bash
+rm -rf node_modules package-lock.json
+npm install
+npm test
+```
+
+### Problem: Linting errors blocking commit
+**Solution:**
+```bash
+npm run lint:fix    # Auto-fix most issues
+# Then commit again
+```
+
+### Problem: Webpack dev server not starting
+**Solution:**
+```bash
+# Kill process on port 8080
+lsof -ti:8080 | xargs kill -9  # macOS/Linux
+# OR restart Replit
+# Then try: npm run dev
+```
+
+### Problem: Test won't pass (stuck)
+**Solution:**
+```bash
+npm test -- --no-coverage    # Disable coverage (faster)
+npm test -- --verbose        # See detailed output
+# Check test file for logic errors
+```
+
+### Problem: Git merge conflicts
+**Solution:**
+```bash
+# During merge:
+# 1. Open conflicted files
+# 2. Look for <<< === >>>
+# 3. Choose correct version
+# 4. git add <file>
+# 5. git commit -m "fix: merge conflicts"
+```
+
+---
+
+## 🔍 DEBUGGING IN REPLIT
+
+### Method 1: Console Logging
+```javascript
+// In your code:
+console.log('Debug:', variableName);  // Will show in Replit console
+
+// Run:
+npm run dev
+// Watch Replit console for output
+```
+
+### Method 2: Replit Debugger
+```bash
+# Start with debugger:
+npm run dev
+
+# Then in browser DevTools (F12):
+# - Open Console tab
+# - Errors will show there
+# - Use breakpoints to debug
+```
+
+### Method 3: Test Debugging
+```bash
+# Run specific test with verbose output:
+npm test -- tests/unit/snake.test.js --verbose
+```
+
+---
+
+## 📱 REPLIT-SPECIFIC TIPS
+
+### Tip 1: File Editing
+- Use Replit's code editor
+- Changes auto-save
+- Click file to open
+
+### Tip 2: Running Commands
+- Use "Shell" tab at bottom for terminal
+- Or click green "Run" button
+- Output appears in shell
+
+### Tip 3: Hot Module Reload
+```bash
+npm run dev
+# Browser auto-refreshes when you change code
+# Don't need to manually refresh
+```
+
+### Tip 4: Sharing Replit Project
+- Click "Share" button
+- Share link with others
+- They can view/fork your project
+
+### Tip 5: Keeping Secrets
+```bash
+# Never commit .env files with secrets
+# Use Replit Secrets (lock icon) instead:
+# 1. Click lock icon
+# 2. Add GITHUB_TOKEN, NETLIFY_TOKEN, etc.
+# 3. Access in code: process.env.GITHUB_TOKEN
+```
+
+---
+
+## 🔗 GITHUB INTEGRATION CHECKLIST
+
+- [ ] Repository created on GitHub
+- [ ] Replit connected to GitHub repo
+- [ ] `.github/workflows/ci-cd.yml` present (CI/CD pipeline)
+- [ ] GitHub Actions enabled in repo settings
+- [ ] Branch protection rules for main (optional)
+  - Require PR reviews
+  - Require status checks to pass
+  - Dismiss stale PR approvals
+
+---
+
+## 📋 PHASE COMPLETION CHECKLIST
+
+After completing each phase:
+
+```bash
+# 1. Verify all tests pass
+npm test -- --coverage
+
+# 2. Verify code quality
+npm run lint
+
+# 3. Update TASK_TRACKER.md
+# - Mark all tasks COMPLETED
+# - Update progress percentage
+
+# 4. Final commit
+git add -A
+git commit -m "phase-X: all tasks completed, Y% coverage"
+
+# 5. Create GitHub release (optional)
+git tag v0.X.0 -m "Release version 0.X.0"
+git push origin v0.X.0
+# Creates GitHub Release page
+```
+
+---
+
+## 🎯 SUCCESS CHECKLIST (End of Day)
+
+- [ ] Ran `npm test` - all passing
+- [ ] Ran `npm run lint` - 0 errors
+- [ ] Created meaningful commits
+- [ ] Updated TASK_TRACKER.md
+- [ ] Pushed to GitHub
+- [ ] GitHub Actions green checkmark ✅
+
+---
+
+## 📞 QUICK REFERENCE
+
+| Action | Command |
+|--------|---------|
+| Start dev | `npm run dev` |
+| Run tests | `npm test` |
+| Test with coverage | `npm test -- --coverage` |
+| Fix lint | `npm run lint:fix` |
+| Build prod | `npm run build` |
+| Create feature branch | `git checkout -b feature/name` |
+| Commit work | `git commit -m "feat: description"` |
+| Push to GitHub | `git push origin feature/name` |
+| View logs | `git log --oneline` |
+
+---
+
+**Last Updated:** November 5, 2025  
+**For Questions:** Refer to LLM-CODING-MASTER-PROMPT.md

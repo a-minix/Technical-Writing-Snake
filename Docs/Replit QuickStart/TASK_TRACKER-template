@@ -1,0 +1,557 @@
+# TASK_TRACKER.md - Snake Evolution Development Progress
+## Status: READY TO START | Version: 2.1 | Last Updated: 2025-11-05
+
+---
+
+## 📊 OVERVIEW
+
+| Metric | Value |
+|--------|-------|
+| **Total Tasks** | 31 |
+| **Completed** | 0 |
+| **In Progress** | 0 |
+| **Remaining** | 31 |
+| **Overall Progress** | 0% |
+| **Test Coverage** | 0% (Target: 85%+) |
+| **Lighthouse Score** | TBD (Target: 90+) |
+| **Bundle Size** | TBD (Target: < 1MB gzipped) |
+
+---
+
+## 🎯 PHASE 1: Setup & Foundation (Week 1) - [0/5 Tasks]
+
+**Goal:** Bootstrap project, set up testing, configure build tools  
+**Status:** 📋 PLANNED  
+**Estimated Duration:** 5 days
+
+### [ ] Task 1.1 - Initialize Replit Project
+- **Description:** Clone from GitHub, install dependencies, verify Node.js 18.x
+- **Priority:** 🔴 CRITICAL
+- **Subtasks:**
+  - [ ] Clone repo: `git clone <url>`
+  - [ ] Install deps: `npm install`
+  - [ ] Verify Node: `node --version` (should be 18.x+)
+  - [ ] Check npm: `npm --version` (should be 9.x+)
+- **Expected Output:** Replit environment ready with all dependencies
+- **Acceptance Criteria:**
+  - ✅ All dependencies installed (node_modules present)
+  - ✅ Node version 18+, npm version 9+
+  - ✅ `npm run dev` starts without errors
+- **Committed:** NO
+- **Notes:** -
+
+### [ ] Task 1.2 - Configure Build Tools
+- **Description:** Setup webpack, Babel, configure dev/prod builds
+- **Priority:** 🔴 CRITICAL
+- **Files to Create:**
+  - `webpack.config.js` (dev + prod modes)
+  - `webpack.dev.js` (development overrides)
+  - `webpack.prod.js` (production overrides)
+  - `.babelrc` (Babel configuration)
+- **Expected Output:** Working webpack dev server on port 8080
+- **Acceptance Criteria:**
+  - ✅ `npm run dev` starts webpack dev server
+  - ✅ Hot module replacement working
+  - ✅ `npm run build` creates dist/ bundle
+  - ✅ Build completes without warnings
+- **Committed:** NO
+- **Notes:** -
+
+### [ ] Task 1.3 - Setup Testing Infrastructure
+- **Description:** Configure Jest with coverage thresholds, setup test utilities
+- **Priority:** 🔴 CRITICAL
+- **Files to Create:**
+  - `jest.config.js` (Jest configuration)
+  - `tests/setup.js` (Test utilities & mocks)
+  - `tests/mocks/canvas.mock.js` (Canvas 2D mock)
+  - `tests/mocks/audio.mock.js` (Web Audio mock)
+  - `tests/mocks/storage.mock.js` (localStorage mock)
+- **Expected Output:** Jest running with 0 tests, coverage thresholds set
+- **Acceptance Criteria:**
+  - ✅ `npm test` runs Jest successfully
+  - ✅ Coverage reporter generates reports
+  - ✅ All mocks working correctly
+  - ✅ Test output shows 0 tests, 0 failures
+- **Committed:** NO
+- **Notes:** -
+
+### [ ] Task 1.4 - Configure Quality Tools
+- **Description:** Setup ESLint, Prettier, Stylelint, pre-commit hooks
+- **Priority:** 🟠 HIGH
+- **Files to Create:**
+  - `.eslintrc.json` (ESLint config)
+  - `.prettierrc.json` (Prettier config)
+  - `.stylelintrc.json` (Stylelint config)
+  - `.husky/pre-commit` (Pre-commit hook)
+  - `.lintstagedrc.json` (lint-staged config)
+- **Expected Output:** Linting & formatting integrated
+- **Acceptance Criteria:**
+  - ✅ `npm run lint` finds no errors (0 warnings)
+  - ✅ `npm run format` formats code correctly
+  - ✅ Pre-commit hooks automatically run
+  - ✅ All configuration files present
+- **Committed:** NO
+- **Notes:** -
+
+### [ ] Task 1.5 - Create Initial Project Structure
+- **Description:** Generate all directories and stub files from spec
+- **Priority:** 🟠 HIGH
+- **Subtasks:**
+  - [ ] Create `src/` directory structure (13 subdirs)
+  - [ ] Create `tests/` directory structure (3 subdirs)
+  - [ ] Create stub files for each module (empty classes)
+  - [ ] Create entry point: `src/main.js`
+  - [ ] Create HTML template: `src/index.html`
+  - [ ] Create styles: `src/style.css`
+  - [ ] Create config files: `.env.local`, `.env.production`
+- **Expected Output:** Complete project structure with stub files
+- **Acceptance Criteria:**
+  - ✅ All 31 source files created
+  - ✅ All directories present
+  - ✅ Stub files have proper exports
+  - ✅ Project builds without errors
+- **Committed:** NO
+- **Notes:** -
+
+**Phase 1 Completion Checklist:**
+- [ ] All 5 tasks completed
+- [ ] `npm run dev` works
+- [ ] `npm test` works (0 tests)
+- [ ] `npm run lint` passes
+- [ ] `npm run build` succeeds
+- [ ] First git commit: "initial: project bootstrap with build tools"
+
+---
+
+## 🎮 PHASE 2: Core Game Engine (Week 2) - [0/5 Tasks]
+
+**Goal:** Implement game loop, snake mechanics, collision detection  
+**Status:** ⏳ PENDING (Waiting for Phase 1)  
+**Estimated Duration:** 7 days
+
+### [ ] Task 2.1 - Snake Entity (TDD: Snake Movement)
+- **Description:** Implement Snake class with movement mechanics
+- **Priority:** 🔴 CRITICAL
+- **TDD Phases:**
+  1. **RED** - Write failing tests for snake mechanics
+  2. **GREEN** - Implement Snake class
+  3. **REFACTOR** - Optimize and add velocity support
+- **Files to Create/Modify:**
+  - `tests/unit/snake.test.js` (Test suite with 8+ tests)
+  - `src/entities/Snake.js` (Implementation)
+- **Test Coverage:** 100%
+- **Test Cases:**
+  - ✅ Should initialize at center with 3 segments
+  - ✅ Should change direction correctly
+  - ✅ Should move in current direction each tick
+  - ✅ Should grow by 1 segment when food eaten
+  - ✅ Should have correct length after multiple grows
+  - ✅ Should validate direction changes (no 180°)
+  - ✅ Should handle velocity multiplier
+  - ✅ Should detect self-collision at index 4+
+- **Expected Output:**
+  - ✅ `npm test snake.test.js` - 8/8 tests passing
+  - ✅ Coverage: 100% (Snake.js)
+- **Committed:** NO
+- **Notes:** -
+
+### [ ] Task 2.2 - Collision Detection (TDD: Spatial Hash O(1))
+- **Description:** Implement spatial hash collision detection
+- **Priority:** 🔴 CRITICAL
+- **TDD Phases:**
+  1. **RED** - Write collision detection tests
+  2. **GREEN** - Implement spatial hash grid
+  3. **REFACTOR** - Add fallback verification, performance optimization
+- **Files to Create/Modify:**
+  - `tests/unit/collision.test.js` (Test suite with 12+ tests)
+  - `src/systems/CollisionSystem.js` (Implementation)
+  - `src/core/SpatialHash.js` (Spatial hash grid)
+- **Test Coverage:** 100%
+- **Test Cases:**
+  - ✅ Should detect wall collision at x=0
+  - ✅ Should detect wall collision at x=20
+  - ✅ Should detect wall collision at y=0
+  - ✅ Should detect wall collision at y=20
+  - ✅ Should detect self-collision with spatial hash
+  - ✅ Should NOT detect self-collision in first 4 segments
+  - ✅ Should detect self-collision in large snakes (100+ segments)
+  - ✅ Should verify spatial hash accuracy (fallback check)
+  - ✅ Should handle empty grid
+  - ✅ Should handle full grid
+  - ✅ Should report collision type (wall/self/food)
+  - ✅ Should maintain O(1) performance
+- **Performance Target:** < 1.2ms per collision check
+- **Expected Output:**
+  - ✅ `npm test collision.test.js` - 12/12 tests passing
+  - ✅ Coverage: 100%
+  - ✅ Performance benchmark: O(1)
+- **Committed:** NO
+- **Notes:** Spatial hashing is critical for performance with long snakes
+
+### [ ] Task 2.3 - Grid System (TDD: Spatial Hashing)
+- **Description:** Implement spatial hash grid for efficient collision detection
+- **Priority:** 🔴 CRITICAL
+- **Files to Create/Modify:**
+  - `tests/unit/grid.test.js` (Test suite with 8+ tests)
+  - `src/entities/Grid.js` (Implementation)
+- **Test Coverage:** 100%
+- **Test Cases:**
+  - ✅ Should initialize 20x20 grid
+  - ✅ Should track snake segments in spatial hash
+  - ✅ Should track food position
+  - ✅ Should query adjacent cells correctly
+  - ✅ Should update on each frame
+  - ✅ Should handle grid boundaries
+  - ✅ Should calculate cell occupancy
+  - ✅ Should efficiently query neighbors
+- **Expected Output:**
+  - ✅ `npm test grid.test.js` - 8/8 tests passing
+  - ✅ Coverage: 100%
+- **Committed:** NO
+- **Notes:** -
+
+### [ ] Task 2.4 - Food Spawning (TDD: Random Placement)
+- **Description:** Implement food spawning logic
+- **Priority:** 🟠 HIGH
+- **Files to Create/Modify:**
+  - `tests/unit/food.test.js` (Test suite with 8+ tests)
+  - `src/entities/Food.js` (Implementation)
+- **Test Coverage:** 100%
+- **Test Cases:**
+  - ✅ Should spawn food on empty cells
+  - ✅ Should NOT spawn on snake segments
+  - ✅ Should spawn within grid bounds
+  - ✅ Should have random position (use seed for tests)
+  - ✅ Should handle full grid (no empty cells)
+  - ✅ Should generate unique IDs
+  - ✅ Should track spawn time
+  - ✅ Should mark as active
+- **Expected Output:**
+  - ✅ `npm test food.test.js` - 8/8 tests passing
+  - ✅ Coverage: 100%
+- **Committed:** NO
+- **Notes:** -
+
+### [ ] Task 2.5 - Game Loop (TDD: Timing & Updates)
+- **Description:** Implement requestAnimationFrame-based game loop
+- **Priority:** 🔴 CRITICAL
+- **Files to Create/Modify:**
+  - `tests/unit/gameloop.test.js` (Test suite with 10+ tests)
+  - `src/core/GameLoop.js` (Implementation)
+  - `src/core/GameEngine.js` (Orchestrator)
+- **Test Coverage:** 100%
+- **Test Cases:**
+  - ✅ Should initialize with 100ms tick rate
+  - ✅ Should tick snake movement
+  - ✅ Should check collisions each tick
+  - ✅ Should spawn food when needed
+  - ✅ Should update score
+  - ✅ Should handle game over
+  - ✅ Should render frame
+  - ✅ Should maintain 60 FPS (requestAnimationFrame)
+  - ✅ Should pause/resume correctly
+  - ✅ Should reset game state
+- **Performance Target:** Frame time < 16.67ms (60 FPS)
+- **Expected Output:**
+  - ✅ `npm test gameloop.test.js` - 10/10 tests passing
+  - ✅ Coverage: 100%
+  - ✅ Game loop running at target FPS
+- **Committed:** NO
+- **Notes:** -
+
+**Phase 2 Completion Checklist:**
+- [ ] All 5 tasks completed
+- [ ] Combined test coverage: 100% on core modules
+- [ ] All unit tests passing: `npm test` shows 43+ tests passing
+- [ ] Game loop running correctly
+- [ ] Snake moves and collides properly
+- [ ] Git commits documented (5 commits)
+
+---
+
+## 🚀 PHASE 3: Evolution System & Input (Week 3) - [0/3 Tasks]
+
+**Goal:** Implement 5-stage evolution, input validation pipeline  
+**Status:** ⏳ PENDING (Waiting for Phase 2)  
+**Estimated Duration:** 5 days
+
+### [ ] Task 3.1 - Evolution System (TDD: Stage Progression)
+- **Description:** Implement 5-stage evolution system
+- **Priority:** 🔴 CRITICAL
+- **Files to Create/Modify:**
+  - `tests/unit/evolution.test.js` (Test suite with 15+ tests)
+  - `src/systems/EvolutionSystem.js` (Implementation)
+  - `src/config/evolution-stages.yaml` (Stage definitions)
+- **Test Coverage:** 100%
+- **Evolution Stages:**
+  - Stage 0: Base (length 0-10, speed 1.0x, color #00AA00)
+  - Stage 1: Crescente (length 11-25, speed 1.05x, color #0088FF)
+  - Stage 2: Consapevole (length 26-50, speed 1.10x, color #00DD00)
+  - Stage 3: Potenziato (length 51-75, speed 1.15x, color #FF4400)
+  - Stage 4: Leggendario (length 76+, speed 1.20x, color #FFD700)
+- **Test Cases:**
+  - ✅ Should initialize in stage 0
+  - ✅ Should transition to stage 1 at length 11
+  - ✅ Should transition to stage 4 at length 76
+  - ✅ Should NOT transition to invalid stage
+  - ✅ Should apply speed multiplier correctly
+  - ✅ Should not downgrade stages
+  - ✅ Should trigger evolution event on stage change
+  - ✅ Should update color on evolution
+  - ✅ Should play audio on evolution
+  - ✅ Should add particle effects on evolution
+  - ✅ Should map all lengths 0-200 to valid stages
+  - ✅ Should maintain deterministic mapping (same input = same output)
+  - ✅ Should handle speed multiplier application
+  - ✅ Should track evolution count
+  - ✅ Should recover from invalid state
+- **Expected Output:**
+  - ✅ `npm test evolution.test.js` - 15/15 tests passing
+  - ✅ Coverage: 100%
+- **Committed:** NO
+- **Notes:** Evolution is the unique gameplay feature
+
+### [ ] Task 3.2 - Input Validation Pipeline (TDD: Multi-Stage)
+- **Description:** Implement 4-stage input validation pipeline
+- **Priority:** 🔴 CRITICAL
+- **Files to Create/Modify:**
+  - `tests/unit/input.test.js` (Test suite with 20+ tests)
+  - `src/systems/InputManager.js` (Implementation)
+  - `src/utils/InputValidators.js` (Validation stages)
+- **Test Coverage:** 100%
+- **Pipeline Stages:**
+  1. Rate Limiting (50ms debounce)
+  2. Direction Validation (no 180° turns)
+  3. Duplicate Filtering (no consecutive duplicates)
+  4. Queueing (max 3 inputs)
+- **Test Cases:**
+  - ✅ Should accept first input
+  - ✅ Should reject inputs < 50ms apart
+  - ✅ Should prevent 180° turns (UP → DOWN, etc.)
+  - ✅ Should reject duplicate consecutive inputs
+  - ✅ Should queue up to 3 inputs
+  - ✅ Should reject 4th queued input
+  - ✅ Should dequeue inputs correctly
+  - ✅ Should track rejection reasons
+  - ✅ Should handle edge case: rapid 180° attempts
+  - ✅ Should handle edge case: many duplicate inputs
+  - ✅ Should reset queue on game over
+  - ✅ Should track input metrics (acceptance rate)
+  - ✅ Should not block valid quick inputs
+  - ✅ Should maintain input order
+  - ✅ Should handle keyboard events
+  - ✅ Should handle touch/swipe events
+  - ✅ Should reject invalid directions
+  - ✅ Should handle concurrent inputs
+  - ✅ Should log rejected inputs
+  - ✅ Should measure input latency
+- **Expected Output:**
+  - ✅ `npm test input.test.js` - 20/20 tests passing
+  - ✅ Coverage: 100%
+  - ✅ Input latency < 50ms
+- **Committed:** NO
+- **Notes:** Input validation is critical for gameplay smoothness
+
+### [ ] Task 3.3 - Audio Manager (TDD: Web Audio API)
+- **Description:** Implement audio system using Web Audio API
+- **Priority:** 🟠 HIGH
+- **Files to Create/Modify:**
+  - `tests/unit/audio.test.js` (Test suite with 12+ tests)
+  - `src/systems/AudioManager.js` (Implementation)
+- **Test Coverage:** 100%
+- **Audio Files Needed:**
+  - `assets/audio/ambient-loop.mp3` (Background music)
+  - `assets/audio/food-collected.mp3` (SFX)
+  - `assets/audio/evolution.mp3` (SFX)
+  - `assets/audio/gameover.mp3` (SFX)
+- **Test Cases:**
+  - ✅ Should initialize Web Audio API
+  - ✅ Should load audio files
+  - ✅ Should play sound effects
+  - ✅ Should loop background music
+  - ✅ Should stop audio
+  - ✅ Should control volume [0-1]
+  - ✅ Should handle audio context suspension (mobile)
+  - ✅ Should resume on user interaction
+  - ✅ Should mute/unmute
+  - ✅ Should track audio state
+  - ✅ Should handle errors gracefully
+  - ✅ Should not crash on missing audio files
+- **Expected Output:**
+  - ✅ `npm test audio.test.js` - 12/12 tests passing
+  - ✅ Coverage: 100%
+  - ✅ Audio working (with dummy files in tests)
+- **Committed:** NO
+- **Notes:** Audio context suspension is common on mobile
+
+**Phase 3 Completion Checklist:**
+- [ ] All 3 tasks completed
+- [ ] Combined test coverage: 100% on systems
+- [ ] All unit tests passing: 47+ tests total
+- [ ] Evolution system fully functional
+- [ ] Input pipeline working smoothly
+- [ ] Audio system operational
+- [ ] Git commits documented (3 commits)
+
+---
+
+## 🎨 PHASE 4: UI & Persistence (Week 4) - [0/4 Tasks]
+
+**Goal:** Implement scenes, rendering, storage with checksums  
+**Status:** ⏳ PENDING (Waiting for Phase 3)  
+**Estimated Duration:** 7 days
+
+### [ ] Task 4.1 - Scene Manager (TDD: State Transitions)
+- **Priority:** 🟠 HIGH
+- **Status:** PENDING
+- **Test Cases:** 10+ tests
+- **Expected Output:** All tests passing, 100% coverage
+- **Committed:** NO
+
+### [ ] Task 4.2 - Canvas Renderer (TDD: Game Rendering)
+- **Priority:** 🟠 HIGH
+- **Status:** PENDING
+- **Test Cases:** 15+ tests
+- **Expected Output:** All tests passing, 100% coverage
+- **Committed:** NO
+
+### [ ] Task 4.3 - Storage Manager (TDD: Persistence)
+- **Priority:** 🔴 CRITICAL
+- **Status:** PENDING
+- **Test Cases:** 12+ tests
+- **Expected Output:** All tests passing, 100% coverage, data integrity verified
+- **Committed:** NO
+
+### [ ] Task 4.4 - High Score Repository (TDD: CRUD)
+- **Priority:** 🟠 HIGH
+- **Status:** PENDING
+- **Test Cases:** 10+ tests
+- **Expected Output:** All tests passing, 100% coverage
+- **Committed:** NO
+
+---
+
+## 🔧 PHASE 5: Quality & Optimization (Week 5) - [0/4 Tasks]
+
+**Goal:** Performance profiling, error handling, monitoring  
+**Status:** ⏳ PENDING
+
+### [ ] Task 5.1 - State Machine (TDD: Race Condition Prevention)
+- **Priority:** 🔴 CRITICAL
+- **Status:** PENDING
+
+### [ ] Task 5.2 - Performance Profiler (TDD: Metrics)
+- **Priority:** 🟠 HIGH
+- **Status:** PENDING
+
+### [ ] Task 5.3 - Error Boundary (TDD: Recovery)
+- **Priority:** 🔴 CRITICAL
+- **Status:** PENDING
+
+### [ ] Task 5.4 - Logger (TDD: Logging)
+- **Priority:** 🟠 HIGH
+- **Status:** PENDING
+
+---
+
+## 🧪 PHASE 6: Testing & Chaos (Week 6) - [0/4 Tasks]
+
+**Goal:** 85%+ coverage, chaos scenarios  
+**Status:** ⏳ PENDING
+
+### [ ] Task 6.1 - Property-Based Testing
+- **Priority:** 🟡 MEDIUM
+- **Status:** PENDING
+
+### [ ] Task 6.2 - Chaos Testing Scenarios
+- **Priority:** 🟡 MEDIUM
+- **Status:** PENDING
+
+### [ ] Task 6.3 - Integration Testing
+- **Priority:** 🟠 HIGH
+- **Status:** PENDING
+
+### [ ] Task 6.4 - Performance Testing
+- **Priority:** 🟠 HIGH
+- **Status:** PENDING
+
+---
+
+## 🚀 PHASE 7: Build & Deployment (Week 7) - [0/4 Tasks]
+
+**Goal:** CI/CD, optimize bundle, prepare launch  
+**Status:** ⏳ PENDING
+
+---
+
+## 📦 PHASE 8: Launch & Post-Launch (Week 8) - [0/3 Tasks]
+
+**Goal:** Final QA, launch, monitor production  
+**Status:** ⏳ PENDING
+
+---
+
+## 📈 CUMULATIVE PROGRESS
+
+```
+Week 1: 0% → 16% (Tasks 1-5 of 31)
+Week 2: 16% → 32% (Tasks 6-10 of 31)
+Week 3: 32% → 42% (Tasks 11-13 of 31)
+Week 4: 42% → 55% (Tasks 14-17 of 31)
+Week 5: 55% → 68% (Tasks 18-21 of 31)
+Week 6: 68% → 81% (Tasks 22-25 of 31)
+Week 7: 81% → 94% (Tasks 26-29 of 31)
+Week 8: 94% → 100% (Tasks 30-31 of 31)
+```
+
+---
+
+## 🔄 GIT COMMIT LOG
+
+```
+[No commits yet - Starting Phase 1]
+```
+
+---
+
+## 📝 CURRENT SPRINT DETAILS
+
+**Sprint:** 1/8  
+**Duration:** Week 1 (5 days)  
+**Focus:** Project bootstrap & foundation setup
+
+### TODAY'S TODO
+- [ ] Setup Replit environment
+- [ ] Install dependencies
+- [ ] Configure webpack & Jest
+- [ ] Create project structure
+
+### BLOCKERS
+*None yet*
+
+### NOTES
+- Starting fresh with TDD methodology
+- All docs available in GitHub
+- Replit connected to GitHub repo
+- Ready to begin development
+
+---
+
+## 🎯 KEY METRICS TO TRACK
+
+| Metric | Target | Current | Status |
+|--------|--------|---------|--------|
+| Test Coverage | 85%+ | 0% | ⏳ |
+| Bundle Size | < 1MB | TBD | ⏳ |
+| FPS Target | 60+ | TBD | ⏳ |
+| Lighthouse | 90+ | TBD | ⏳ |
+| Tasks Complete | 31/31 | 0/31 | ⏳ |
+
+---
+
+**How to use this file:**
+1. Update after completing each task
+2. Move task from PENDING to IN PROGRESS to DONE
+3. Update git commit hash when committed
+4. Update cumulative progress after each phase
+5. Commit changes: `git add TASK_TRACKER.md && git commit -m "update: progress tracker"`

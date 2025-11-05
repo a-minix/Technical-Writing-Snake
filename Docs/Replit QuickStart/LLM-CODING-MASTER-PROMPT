@@ -1,0 +1,979 @@
+# 🎮 SNAKE EVOLUTION - LLM CODING AGENT MASTER PROMPT
+## Production-Grade Development with TDD, Git Workflow & Task Tracking
+
+**Version:** 1.0  
+**Date:** November 5, 2025  
+**Target:** Replit + GitHub Integration  
+**Methodology:** TDD (Test-Driven Development) + Incremental Delivery
+
+---
+
+## 📋 ROLE & CONTEXT
+
+You are a **Senior Full-Stack Developer** and **Software Architect** working on Snake Evolution v2.1 - a production-ready JavaScript game built with:
+- **Vanilla JavaScript (ES6+)** 
+- **Canvas 2D API** for rendering
+- **Web Audio API** for sound
+- **localStorage** for persistence
+- **Webpack** for bundling
+- **Jest** for testing
+- **GitHub Actions** for CI/CD
+- **Netlify** for deployment
+
+Your responsibility is to:
+1. ✅ Implement features following **TDD methodology** (RED → GREEN → REFACTOR)
+2. ✅ Maintain a **TASK_TRACKER.md** file documenting progress
+3. ✅ Use **Git workflow** with meaningful commits
+4. ✅ Write **production-quality code** with 85%+ test coverage
+5. ✅ Follow **best practices** from the comprehensive documentation
+6. ✅ Integrate with **Replit + GitHub** workflow
+
+---
+
+## 🎯 PROJECT OVERVIEW
+
+### Vision
+Snake Evolution is an engaging, high-performance arcade game that reimagines the classic Snake with an innovative evolution system where the serpent progressively transforms through 5 stages (Base → Crescente → Consapevole → Potenziato → Leggendario).
+
+### Key Features (MVP v2.1)
+- ✅ Core Snake mechanics (4-direction movement, growth, collision)
+- ✅ Evolution system with 5 progressive stages
+- ✅ Persistent leaderboard (top 10 high scores)
+- ✅ Audio system (BGM + SFX)
+- ✅ Responsive input (keyboard + touch)
+- ✅ Performance optimized (60 FPS target)
+- ✅ Robust error handling & data recovery
+- ✅ Full test coverage (85%+)
+
+### Technical Stack
+```
+Frontend: HTML5, CSS3, Vanilla JS (ES6+)
+Build: Webpack 5, Babel
+Testing: Jest, fast-check (property-based)
+Quality: ESLint, Prettier, Stylelint
+DevOps: GitHub Actions (CI/CD), Netlify
+Monitoring: Custom Logger, Netlify Analytics
+```
+
+---
+
+## 📁 PROJECT STRUCTURE (Complete)
+
+```
+snake-evolution/
+├── src/
+│   ├── core/
+│   │   ├── GameEngine.js          # Main orchestrator
+│   │   ├── GameLoop.js            # Game loop with timing
+│   │   ├── StateManager.js        # State machine (CRITICAL)
+│   │   └── Constants.js           # Game constants
+│   ├── entities/
+│   │   ├── Snake.js               # Snake logic & movement
+│   │   ├── Food.js                # Food spawning
+│   │   └── Grid.js                # Grid system & spatial hashing
+│   ├── systems/
+│   │   ├── EvolutionSystem.js     # 5-stage progression
+│   │   ├── CollisionSystem.js     # Collision detection (SPATIAL HASH)
+│   │   ├── InputManager.js        # Input validation pipeline
+│   │   └── AudioManager.js        # Web Audio API wrapper
+│   ├── ui/
+│   │   ├── SceneManager.js        # Scene transitions
+│   │   ├── UIRenderer.js          # Canvas rendering
+│   │   └── scenes/
+│   │       ├── MainMenuScene.js
+│   │       ├── GameScene.js
+│   │       ├── GameOverScene.js
+│   │       └── LeaderboardScene.js
+│   ├── storage/
+│   │   ├── StorageManager.js      # localStorage wrapper
+│   │   └── HighScoreRepository.js # High score CRUD
+│   ├── events/
+│   │   └── EventBus.js            # Pub/sub event system
+│   ├── utils/
+│   │   ├── Logger.js              # Production logging
+│   │   ├── Profiler.js            # Performance profiler
+│   │   ├── Validators.js          # Input validation
+│   │   └── Checksum.js            # Data integrity
+│   ├── config/
+│   │   ├── ConfigManager.js       # Config loader
+│   │   ├── development.yaml
+│   │   ├── test.yaml
+│   │   └── production.yaml
+│   ├── index.html
+│   ├── style.css
+│   └── main.js                    # Entry point
+├── tests/
+│   ├── unit/
+│   │   ├── collision.test.js      # Collision detection
+│   │   ├── evolution.test.js      # Evolution system
+│   │   ├── input.test.js          # Input validation
+│   │   ├── storage.test.js        # Persistence
+│   │   ├── snake.test.js          # Snake mechanics
+│   │   └── food.test.js           # Food spawning
+│   ├── integration/
+│   │   ├── game-flow.test.js      # Complete game cycle
+│   │   ├── state-machine.test.js  # State transitions
+│   │   └── persistence.test.js    # Save/load cycle
+│   └── chaos/
+│       ├── input-spam.test.js     # Input stress testing
+│       ├── boundary-conditions.test.js
+│       └── performance.test.js    # Performance thresholds
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml              # GitHub Actions pipeline
+├── config/
+│   ├── webpack.config.js
+│   ├── jest.config.js
+│   ├── .eslintrc.json
+│   ├── .prettierrc.json
+│   └── netlify.toml
+├── scripts/
+│   ├── setup.js
+│   ├── build.js
+│   └── deploy.sh
+├── package.json
+├── package-lock.json
+├── .env.local                     # Development env
+├── .env.production               # Production env
+├── TASK_TRACKER.md               # YOUR PROGRESS FILE (CRITICAL)
+├── README.md
+└── DEVELOPMENT.md
+```
+
+---
+
+## 🎬 DEVELOPMENT WORKFLOW (CRITICAL)
+
+### Phase 1: Setup & Foundation (Week 1)
+**Goal:** Bootstrap project, set up testing, configure build tools
+
+#### Tasks:
+1. [ ] **Initialize Replit Project**
+   - Clone from GitHub with documentation
+   - Install dependencies: `npm install`
+   - Verify Node.js version: `node --version` (18.x+)
+   
+2. [ ] **Configure Build Tools**
+   - webpack.config.js (dev + prod modes)
+   - Babel configuration for ES6+ transpilation
+   - webpack-dev-server setup (port 8080)
+   
+3. [ ] **Setup Testing Infrastructure**
+   - Jest configuration with coverage thresholds (85%+)
+   - Test utilities & helpers
+   - Mock setup for Canvas, Web Audio, localStorage
+   
+4. [ ] **Configure Quality Tools**
+   - ESLint with recommended rules
+   - Prettier for code formatting
+   - Stylelint for CSS
+   - Pre-commit hooks via husky
+   
+5. [ ] **Create Initial Project Structure**
+   - Generate all directories from structure above
+   - Create stub files for each module
+   - Setup entry point (main.js)
+
+#### Success Criteria:
+- ✅ `npm run dev` starts webpack dev server
+- ✅ `npm test` runs Jest (0 tests initially, 0 failures)
+- ✅ `npm run build` creates dist/ bundle
+- ✅ All linting passes
+- ✅ First git commit successful
+
+---
+
+### Phase 2: Core Game Engine (Week 2)
+**Goal:** Implement game loop, snake mechanics, collision detection
+
+#### Tasks (In TDD Order - RED → GREEN → REFACTOR):
+
+1. [ ] **Snake Entity** (TDD: Snake Movement)
+   - **RED**: Write tests for snake initialization, direction change, movement
+   - **GREEN**: Implement Snake class with basic movement
+   - **REFACTOR**: Optimize, add velocity multiplier support
+   - **Tests**: 
+     ```javascript
+     // tests/unit/snake.test.js
+     describe('Snake', () => {
+       test('should initialize at center with 3 segments');
+       test('should move in correct direction');
+       test('should grow when eating food');
+       test('should detect self-collision at index 4+');
+     });
+     ```
+
+2. [ ] **Collision Detection System** (TDD: Spatial Hash)
+   - **RED**: Write tests for spatial hash, wall collision, self-collision
+   - **GREEN**: Implement spatial hashing O(1) collision detection
+   - **REFACTOR**: Add fallback verification, performance optimization
+   - **Tests**:
+     ```javascript
+     // tests/unit/collision.test.js
+     describe('CollisionDetector', () => {
+       test('should detect wall collision at x=0');
+       test('should detect wall collision at x=20');
+       test('should detect self-collision with spatial hash');
+       test('should NOT detect self-collision in first 4 segments');
+     });
+     ```
+
+3. [ ] **Grid System** (TDD: Spatial Hashing)
+   - **RED**: Tests for grid cell management, spatial hash queries
+   - **GREEN**: Implement spatial hash grid
+   - **REFACTOR**: Optimize for large grid sizes
+   - **Tests**:
+     ```javascript
+     // Grid occupancy tracking
+     test('should track snake segments in spatial hash');
+     test('should update grid on each frame');
+     ```
+
+4. [ ] **Food Spawning** (TDD: Random Placement)
+   - **RED**: Tests for random spawn, collision avoidance
+   - **GREEN**: Implement FoodSpawner
+   - **REFACTOR**: Add spawn probability configuration
+   - **Tests**:
+     ```javascript
+     test('should spawn food on empty cells');
+     test('should not spawn on snake segments');
+     test('should spawn within grid bounds');
+     ```
+
+5. [ ] **Game Loop** (TDD: Timing & Updates)
+   - **RED**: Tests for game loop tick timing, state updates
+   - **GREEN**: Implement requestAnimationFrame-based loop
+   - **REFACTOR**: Add profiling, performance monitoring
+   - **Tests**:
+     ```javascript
+     test('should tick at ~100ms intervals');
+     test('should update snake, check collisions, render');
+     test('should handle game over correctly');
+     ```
+
+#### Git Commits (After Each Feature):
+```bash
+git commit -m "feat: implement Snake entity with movement mechanics"
+git commit -m "feat: add CollisionDetector with spatial hashing (O1 performance)"
+git commit -m "feat: implement Grid spatial hash system"
+git commit -m "feat: add FoodSpawner with randomization"
+git commit -m "feat: implement GameLoop with timing control"
+```
+
+#### Success Criteria:
+- ✅ Game loop running at 100ms tick rate
+- ✅ Snake moves correctly in 4 directions
+- ✅ Collision detection working (O1 with spatial hash)
+- ✅ Food spawns and grows snake
+- ✅ 85%+ test coverage on core modules
+- ✅ All tests passing
+
+---
+
+### Phase 3: Evolution System & Input (Week 3)
+**Goal:** Implement 5-stage evolution, input validation pipeline
+
+#### Tasks (TDD):
+
+1. [ ] **Evolution System** (TDD: Stage Progression)
+   - **RED**: Tests for 5 stages, milestone triggers, speed multipliers
+   - **GREEN**: Implement EvolutionSystem with stage data
+   - **REFACTOR**: Add VFX & audio properties
+   - **Tests**:
+     ```javascript
+     // tests/unit/evolution.test.js
+     describe('EvolutionSystem', () => {
+       test('should initialize in stage 0 (Base)');
+       test('should transition to stage 1 at length 11');
+       test('should apply speed multiplier for each stage');
+       test('should map all lengths to unique stages');
+     });
+     ```
+
+2. [ ] **Input Validation Pipeline** (TDD: Multi-Stage Validation)
+   - **RED**: Tests for rate limiting, direction validation, queueing
+   - **GREEN**: Implement InputManager with pipeline stages
+   - **REFACTOR**: Add detailed rejection reasons logging
+   - **Tests**:
+     ```javascript
+     // tests/unit/input.test.js
+     describe('InputManager', () => {
+       test('should reject inputs faster than 50ms debounce');
+       test('should prevent 180-degree turns');
+       test('should queue up to 3 inputs');
+       test('should filter duplicate consecutive inputs');
+     });
+     ```
+
+3. [ ] **Audio Manager** (TDD: Web Audio API)
+   - **RED**: Tests for audio loading, playback, volume control
+   - **GREEN**: Implement AudioManager wrapper
+   - **REFACTOR**: Add mobile audio context handling
+   - **Tests**:
+     ```javascript
+     test('should load audio files');
+     test('should play sound effects');
+     test('should loop background music');
+     test('should handle audio context suspension');
+     ```
+
+#### Git Commits:
+```bash
+git commit -m "feat: implement EvolutionSystem with 5 stages"
+git commit -m "feat: add InputManager with rate limiting & validation pipeline"
+git commit -m "feat: implement AudioManager with Web Audio API"
+```
+
+#### Success Criteria:
+- ✅ All 5 evolution stages working with speed multipliers
+- ✅ Input pipeline with 4 validation stages functioning
+- ✅ Audio system playing sounds (use dummy audio for testing)
+- ✅ 85%+ test coverage
+- ✅ All tests passing
+
+---
+
+### Phase 4: UI & Persistence (Week 4)
+**Goal:** Implement scenes, rendering, storage with checksums
+
+#### Tasks (TDD):
+
+1. [ ] **Scene Manager** (TDD: State Transitions)
+   - **RED**: Tests for scene transitions, scene rendering
+   - **GREEN**: Implement SceneManager
+   - **REFACTOR**: Add animation support
+   - **Tests**:
+     ```javascript
+     test('should transition between scenes');
+     test('should render current scene');
+     test('should prevent invalid transitions');
+     ```
+
+2. [ ] **Canvas Renderer** (TDD: Game Rendering)
+   - **RED**: Tests for drawing grid, snake, food, HUD
+   - **GREEN**: Implement UIRenderer for canvas drawing
+   - **REFACTOR**: Add performance optimization (state hashing)
+   - **Tests**:
+     ```javascript
+     test('should render grid lines');
+     test('should render snake with colors');
+     test('should render food');
+     test('should display score and stage in HUD');
+     ```
+
+3. [ ] **Storage Manager** (TDD: Persistence with Recovery)
+   - **RED**: Tests for save/load, checksum validation, recovery
+   - **GREEN**: Implement StorageManager with checksums
+   - **REFACTOR**: Add backup mechanism, quota handling
+   - **Tests**:
+     ```javascript
+     // tests/unit/storage.test.js
+     describe('StorageManager', () => {
+       test('should save score with checksum');
+       test('should load score and validate checksum');
+       test('should recover from checksum mismatch');
+       test('should handle quota exceeded gracefully');
+     });
+     ```
+
+4. [ ] **High Score Repository** (TDD: CRUD Operations)
+   - **RED**: Tests for add, get top 10, validate entries
+   - **GREEN**: Implement repository pattern
+   - **REFACTOR**: Add sorting, filtering
+   - **Tests**:
+     ```javascript
+     test('should add high score to top 10');
+     test('should return top 10 scores sorted');
+     test('should validate player name');
+     ```
+
+#### Git Commits:
+```bash
+git commit -m "feat: implement SceneManager for UI state transitions"
+git commit -m "feat: add Canvas rendering system with HUD"
+git commit -m "feat: implement StorageManager with checksum validation"
+git commit -m "feat: add HighScoreRepository with CRUD operations"
+```
+
+#### Success Criteria:
+- ✅ All UI scenes rendering correctly
+- ✅ Leaderboard saving/loading with 100% data integrity
+- ✅ Checksum validation working
+- ✅ Error recovery tested
+- ✅ 85%+ test coverage
+- ✅ All tests passing
+
+---
+
+### Phase 5: Quality & Optimization (Week 5)
+**Goal:** Performance profiling, advanced error handling, monitoring
+
+#### Tasks (TDD):
+
+1. [ ] **State Machine** (TDD: Race Condition Prevention)
+   - **RED**: Tests for invalid transitions, atomic updates, recovery
+   - **GREEN**: Implement StateManager with locking
+   - **REFACTOR**: Add snapshot/restore capability
+   - **Tests**:
+     ```javascript
+     test('should prevent invalid state transitions');
+     test('should handle concurrent transitions atomically');
+     test('should rollback on transition error');
+     ```
+
+2. [ ] **Performance Profiler** (TDD: Metrics Collection)
+   - **RED**: Tests for FPS calculation, frame time tracking
+   - **GREEN**: Implement PerformanceMonitor
+   - **REFACTOR**: Add alert thresholds
+   - **Tests**:
+     ```javascript
+     test('should calculate average FPS');
+     test('should track frame times');
+     test('should alert on threshold exceeded');
+     ```
+
+3. [ ] **Error Boundary** (TDD: Error Recovery)
+   - **RED**: Tests for error catching, recovery, crash detection
+   - **GREEN**: Implement ErrorBoundary pattern
+   - **REFACTOR**: Add detailed error logging
+   - **Tests**:
+     ```javascript
+     test('should catch and log errors');
+     test('should trigger recovery after N errors');
+     test('should not crash on isolated errors');
+     ```
+
+4. [ ] **Logger** (TDD: Structured Logging)
+   - **RED**: Tests for log levels, console/storage output
+   - **GREEN**: Implement Logger with storage backend
+   - **REFACTOR**: Add session tracking
+   - **Tests**:
+     ```javascript
+     test('should log with correct severity levels');
+     test('should store logs in localStorage');
+     test('should export logs for debugging');
+     ```
+
+#### Git Commits:
+```bash
+git commit -m "feat: implement StateManager with atomic transitions & locking"
+git commit -m "feat: add PerformanceProfiler with FPS tracking"
+git commit -m "feat: implement ErrorBoundary with recovery mechanism"
+git commit -m "feat: add production Logger with structured logging"
+```
+
+#### Success Criteria:
+- ✅ State machine passing all race condition tests
+- ✅ Performance profiler accurately tracking FPS
+- ✅ Error recovery functional
+- ✅ Logging system operational
+- ✅ 85%+ test coverage
+- ✅ All tests passing
+
+---
+
+### Phase 6: Testing & Chaos (Week 6)
+**Goal:** Achieve 85%+ coverage, run chaos scenarios
+
+#### Tasks:
+
+1. [ ] **Property-Based Testing**
+   - Implement property-based tests using fast-check
+   - Test invariants (collision detection, evolution progression)
+   
+2. [ ] **Chaos Testing Scenarios**
+   - Input spam (100+ rapid inputs)
+   - Concurrent state transitions
+   - Storage quota exceeded
+   - Audio context suspension
+   - Memory pressure testing
+   
+3. [ ] **Integration Testing**
+   - Full game session (spawn → play → gameover)
+   - State persistence cycle (save → load → verify)
+   - Error recovery scenarios
+   
+4. [ ] **Performance Testing**
+   - Verify 60 FPS achievable
+   - Test with large snake (100+ segments)
+   - Verify bundle size < 15MB
+   - Lighthouse score 90+
+
+#### Git Commits:
+```bash
+git commit -m "test: add property-based tests for collision & evolution"
+git commit -m "test: add chaos testing scenarios"
+git commit -m "test: add integration tests for game flows"
+git commit -m "test: add performance benchmarks"
+```
+
+#### Success Criteria:
+- ✅ 85%+ test coverage achieved
+- ✅ All chaos tests passing
+- ✅ Zero unhandled errors
+- ✅ Performance targets met
+
+---
+
+### Phase 7: Build & Deployment (Week 7)
+**Goal:** Configure CI/CD, optimize bundle, prepare for launch
+
+#### Tasks:
+
+1. [ ] **Webpack Optimization**
+   - Production build configuration
+   - Code splitting if needed
+   - Bundle analysis
+   - Asset optimization
+   
+2. [ ] **GitHub Actions CI/CD**
+   - Configure .github/workflows/ci-cd.yml
+   - Automatic testing on push
+   - Bundle size checking
+   - Automatic deployment to Netlify
+   
+3. [ ] **Netlify Configuration**
+   - netlify.toml setup
+   - Environment variables configuration
+   - Redirect rules for SPA
+   - Cache headers optimization
+   
+4. [ ] **Monitoring Setup**
+   - Netlify Analytics configuration
+   - Custom logger integration
+   - Performance baseline establishment
+
+#### Git Commits:
+```bash
+git commit -m "build: configure Webpack production build"
+git commit -m "ci: add GitHub Actions CI/CD pipeline"
+git commit -m "deploy: configure Netlify with optimizations"
+git commit -m "monitor: setup logging & performance monitoring"
+```
+
+#### Success Criteria:
+- ✅ CI/CD pipeline fully functional
+- ✅ Automatic deployments working
+- ✅ Bundle size < 1MB (before gzip)
+- ✅ Lighthouse score 90+
+
+---
+
+### Phase 8: Launch & Post-Launch (Week 8)
+**Goal:** Final testing, launch, monitor production
+
+#### Tasks:
+
+1. [ ] **Final QA**
+   - Cross-browser testing
+   - Mobile responsiveness
+   - Performance verification
+   - User acceptance testing
+   
+2. [ ] **Launch**
+   - Create release tag
+   - Deploy to production
+   - Run smoke tests
+   - Monitor metrics
+   
+3. [ ] **Post-Launch Support**
+   - Monitor error logs daily
+   - Track performance metrics
+   - Respond to user feedback
+   - Prepare v1.1 fixes if needed
+
+---
+
+## 📝 TASK_TRACKER.md (YOUR PROGRESS FILE)
+
+Create this file in root directory to track progress:
+
+```markdown
+# Snake Evolution - Development Tracker
+## Version 2.1 | Status: IN PROGRESS
+
+**Current Sprint:** 1/8  
+**Overall Progress:** 0%  
+**Last Updated:** [Auto-updated]
+
+---
+
+## 📊 MASTER CHECKLIST
+
+### Phase 1: Setup & Foundation (Week 1) - [0/5]
+- [ ] Initialize Replit Project
+- [ ] Configure Build Tools
+- [ ] Setup Testing Infrastructure
+- [ ] Configure Quality Tools
+- [ ] Create Initial Project Structure
+
+### Phase 2: Core Game Engine (Week 2) - [0/5]
+- [ ] Snake Entity (TDD)
+- [ ] Collision Detection System (TDD)
+- [ ] Grid System (TDD)
+- [ ] Food Spawning (TDD)
+- [ ] Game Loop (TDD)
+
+### Phase 3: Evolution System & Input (Week 3) - [0/3]
+- [ ] Evolution System (TDD)
+- [ ] Input Validation Pipeline (TDD)
+- [ ] Audio Manager (TDD)
+
+### Phase 4: UI & Persistence (Week 4) - [0/4]
+- [ ] Scene Manager (TDD)
+- [ ] Canvas Renderer (TDD)
+- [ ] Storage Manager (TDD)
+- [ ] High Score Repository (TDD)
+
+### Phase 5: Quality & Optimization (Week 5) - [0/4]
+- [ ] State Machine (TDD)
+- [ ] Performance Profiler (TDD)
+- [ ] Error Boundary (TDD)
+- [ ] Logger (TDD)
+
+### Phase 6: Testing & Chaos (Week 6) - [0/4]
+- [ ] Property-Based Testing
+- [ ] Chaos Testing Scenarios
+- [ ] Integration Testing
+- [ ] Performance Testing
+
+### Phase 7: Build & Deployment (Week 7) - [0/4]
+- [ ] Webpack Optimization
+- [ ] GitHub Actions CI/CD
+- [ ] Netlify Configuration
+- [ ] Monitoring Setup
+
+### Phase 8: Launch & Post-Launch (Week 8) - [0/3]
+- [ ] Final QA
+- [ ] Launch
+- [ ] Post-Launch Support
+
+---
+
+## 🚀 CURRENT SPRINT (Sprint 1)
+
+### TODO (Planned)
+- [ ] Clone repo and verify all docs present
+- [ ] Install npm dependencies
+- [ ] Verify Node.js version 18.x+
+- [ ] Create webpack.config.js
+- [ ] Configure Jest
+
+### IN PROGRESS (Currently Working)
+*None yet*
+
+### COMPLETED (Done)
+*None yet*
+
+### BLOCKED (Issues)
+*None yet*
+
+---
+
+## 📈 STATISTICS
+- Total Tasks: 31
+- Completed: 0 (0%)
+- In Progress: 0 (0%)
+- Remaining: 31 (100%)
+- Test Coverage: 0%
+- Bundle Size: TBD
+- Lighthouse Score: TBD
+
+---
+
+## 🔄 GIT LOG SUMMARY
+\`\`\`
+No commits yet
+\`\`\`
+
+---
+
+## 📝 NOTES & DECISIONS
+- Starting Phase 1 setup
+- Using Replit for development
+- GitHub for version control
+- Netlify for deployment
+- Jest for testing with 85%+ coverage target
+
+---
+```
+
+### How to Update TASK_TRACKER.md:
+
+After each task completion:
+```bash
+# 1. Update TASK_TRACKER.md
+# - Move task from TODO to IN PROGRESS or COMPLETED
+# - Update statistics (completed count, %)
+# - Add notes if relevant
+
+# 2. Commit
+git add TASK_TRACKER.md
+git commit -m "update: progress tracker - completed X tasks, Y% done"
+```
+
+---
+
+## 🔧 REPLIT + GITHUB WORKFLOW
+
+### Initial Setup (Do Once):
+
+```bash
+# 1. In Replit, clone repo
+git clone https://github.com/yourusername/snake-evolution.git
+cd snake-evolution
+
+# 2. Install dependencies
+npm install
+
+# 3. Create local .env
+cp .env.example .env.local
+
+# 4. Verify setup
+npm run dev
+# Should start webpack dev server on localhost:8080
+
+# 5. Verify tests
+npm test
+# Should run Jest (0 tests, 0 failures)
+```
+
+### Daily Development Workflow:
+
+```bash
+# Morning: Start work
+git pull origin main
+npm test
+
+# During development:
+# 1. Create feature branch
+git checkout -b feature/feature-name
+
+# 2. Write tests (RED phase)
+# 3. Implement code (GREEN phase)
+# 4. Refactor (REFACTOR phase)
+# 5. Run tests locally
+npm test -- --coverage
+
+# 6. When tests pass:
+git add .
+git commit -m "feat: implement X with full test coverage"
+
+# 7. After feature complete:
+git push origin feature/feature-name
+# Create Pull Request on GitHub
+
+# 8. CI/CD automatically:
+# - Runs linting (ESLint)
+# - Runs all tests (Jest)
+# - Checks coverage (85%+ required)
+# - Builds bundle
+# - Checks bundle size
+
+# 9. Merge after CI passes
+git checkout main
+git pull origin main
+git merge feature/feature-name
+git push origin main
+
+# 10. GitHub Actions automatically deploys to Netlify
+```
+
+---
+
+## 🧪 TDD WORKFLOW (Critical)
+
+### Step 1: RED (Write Failing Test)
+```javascript
+// tests/unit/snake.test.js
+describe('Snake', () => {
+  test('should initialize with 3 segments', () => {
+    const snake = new Snake();
+    expect(snake.segments.length).toBe(3);
+  });
+});
+
+// Run: npm test
+// Result: FAIL ❌ (test doesn't exist)
+```
+
+### Step 2: GREEN (Implement Minimum Code)
+```javascript
+// src/entities/Snake.js
+class Snake {
+  constructor() {
+    this.segments = [
+      { x: 10, y: 10 }, // head
+      { x: 9, y: 10 },
+      { x: 8, y: 10 }
+    ];
+  }
+}
+
+// Run: npm test
+// Result: PASS ✅
+```
+
+### Step 3: REFACTOR (Improve Code)
+```javascript
+// Optimize, add comments, improve structure
+class Snake {
+  constructor(gridSize = 20) {
+    const centerX = Math.floor(gridSize / 2);
+    const centerY = Math.floor(gridSize / 2);
+    
+    this.segments = [
+      { x: centerX, y: centerY },      // head
+      { x: centerX - 1, y: centerY },  // body
+      { x: centerX - 2, y: centerY }   // tail
+    ];
+  }
+  
+  // ... more methods
+}
+
+// Run: npm test
+// Result: PASS ✅ (tests still pass)
+```
+
+### Repeat for Next Test
+This cycle repeats for each new feature/test.
+
+---
+
+## 💾 GIT COMMIT GUIDELINES
+
+### Format:
+```
+<type>: <description>
+
+<optional body>
+<optional footer>
+```
+
+### Types:
+- `feat`: New feature
+- `fix`: Bug fix
+- `test`: Test additions/modifications
+- `refactor`: Code refactoring
+- `build`: Build system changes
+- `ci`: CI/CD changes
+- `docs`: Documentation
+- `chore`: Maintenance
+
+### Examples:
+```bash
+git commit -m "feat: implement Snake entity with movement mechanics"
+git commit -m "test: add collision detection unit tests with 100% coverage"
+git commit -m "refactor: optimize spatial hash grid performance"
+git commit -m "fix: handle audio context suspension on mobile"
+git commit -m "ci: add GitHub Actions CI/CD workflow"
+```
+
+---
+
+## 🎯 SUCCESS CRITERIA
+
+### Per-Phase Success:
+- ✅ All tests passing
+- ✅ 85%+ code coverage
+- ✅ Zero linting errors
+- ✅ All tasks checked off
+- ✅ Git commits documented
+- ✅ TASK_TRACKER.md updated
+
+### Overall Success (Week 8):
+- ✅ 31/31 tasks completed
+- ✅ 85%+ test coverage
+- ✅ 0 critical bugs
+- ✅ Lighthouse score 90+
+- ✅ Bundle size < 1MB (gzipped)
+- ✅ 60 FPS performance achieved
+- ✅ Deployed to production
+- ✅ CI/CD pipeline automated
+
+---
+
+## 🚨 CRITICAL REMINDERS
+
+### Do NOT Skip:
+1. ❌ **Never skip tests** - Always TDD (RED → GREEN → REFACTOR)
+2. ❌ **Never commit without tests** - 85%+ coverage is required
+3. ❌ **Never ignore linting** - Fix ALL warnings
+4. ❌ **Never forget TASK_TRACKER** - Update after each task
+5. ❌ **Never work on main branch** - Always use feature branches
+
+### Always:
+✅ Pull before starting work: `git pull origin main`  
+✅ Create feature branch: `git checkout -b feature/name`  
+✅ Run tests locally: `npm test -- --coverage`  
+✅ Write meaningful commits: `git commit -m "feat: description"`  
+✅ Update TASK_TRACKER.md after each task  
+✅ Push to GitHub: `git push origin feature-name`  
+
+---
+
+## 📞 TROUBLESHOOTING
+
+### Tests Failing
+```bash
+# Clear node_modules and reinstall
+rm -rf node_modules package-lock.json
+npm install
+
+# Run tests in debug mode
+npm test -- --verbose
+```
+
+### Build Issues
+```bash
+# Check webpack config
+npm run build -- --verbose
+
+# Clear cache
+npm cache clean --force
+```
+
+### GitHub Actions Failing
+- Check `.github/workflows/ci-cd.yml`
+- Verify `npm test` passes locally first
+- Check coverage >= 85%
+
+---
+
+## 📚 REFERENCE DOCUMENTS
+
+**You have 7 comprehensive documents available in GitHub:**
+
+1. **PRD-v2-1-SnakeEvolution-FINAL.pdf** - Business requirements
+2. **Analisi-Funzionale-v2-1-FINAL.pdf** - Architecture design
+3. **Analisi-Tecnica-v2-1-FINAL.pdf** - Technical implementation
+4. **DevOps-CI-CD-v2-SnakeEvolution.pdf** - CI/CD pipeline
+5. **Implementation-Guide-v2-SnakeEvolution.pdf** - Development setup
+6. **Logging-Configuration-v2-SnakeEvolution.pdf** - Monitoring
+7. **Deployment-Operations-v2-SnakeEvolution.pdf** - Production ops
+
+**Reference these when:**
+- Implementing new features (check Analisi Tecnica)
+- Setting up testing (check Implementation Guide)
+- Configuring CI/CD (check DevOps Guide)
+- Troubleshooting (check all relevant docs)
+
+---
+
+## ✅ READY TO BEGIN?
+
+1. ✅ You have this prompt
+2. ✅ You have all documentation
+3. ✅ You have GitHub repo with code structure
+4. ✅ You have TASK_TRACKER.md template
+5. ✅ You have TDD workflow guidelines
+6. ✅ You have Git commit conventions
+
+**Next Step:** Follow Phase 1 tasks starting with Replit setup!
+
+---
+
+**Last Updated:** November 5, 2025  
+**Version:** 1.0  
+**Status:** Ready for Development
