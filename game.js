@@ -32,6 +32,7 @@ class Game {
         this.particles = [];
         this.backgroundMusic = null;
         this.musicContext = null;
+        this.isGameActive = false;
         
         this.initScreens();
         this.initControls();
@@ -60,10 +61,12 @@ class Game {
         document.getElementById('music-toggle').addEventListener('change', (e) => {
             this.musicEnabled = e.target.checked;
             this.saveSettings();
-            if (this.musicEnabled) {
-                this.startBackgroundMusic();
-            } else {
-                this.stopBackgroundMusic();
+            if (this.isGameActive) {
+                if (this.musicEnabled) {
+                    this.startBackgroundMusic();
+                } else {
+                    this.stopBackgroundMusic();
+                }
             }
         });
     }
@@ -169,6 +172,7 @@ class Game {
         this.currentStage = EVOLUTION_STAGES.BASE;
         this.trail = [];
         this.particles = [];
+        this.isGameActive = true;
         
         this.spawnFood();
         this.updateScore();
@@ -437,6 +441,8 @@ class Game {
     
     gameOver() {
         clearInterval(this.gameLoop);
+        this.isGameActive = false;
+        this.stopBackgroundMusic();
         this.playSound('gameover');
         
         const highScore = parseInt(localStorage.getItem('highScore') || 0);
@@ -508,6 +514,7 @@ class Game {
     
     exitToMenu() {
         if (this.gameLoop) clearInterval(this.gameLoop);
+        this.isGameActive = false;
         this.stopBackgroundMusic();
         this.hideScreen('pause-screen');
         this.hideScreen('gameover-screen');
