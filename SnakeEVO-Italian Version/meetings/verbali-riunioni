@@ -16,7 +16,7 @@
 | :-- | :-- | :-- |
 | Danilo | Creazione analisi funzionale | 06/11/2025 |
 | Amin | Creazione analisi tecnica | 06/11/2025 |
-| Daniele | Continuazione verbale giorno per giorno | 14/11/2025 |
+| Daniele | Continuazione verbale giorno per giorno | 15/11/2025 |
 
 
 
@@ -155,7 +155,7 @@
 
 ##Decisioni prese:
 - Creazione prompt diretto per replit
-- Applicazione del prompt
+- Applicazione del prompt per sviluppo
 - Sommario delle deliverables
 
 #Action items
@@ -177,12 +177,11 @@
 
 ##Decisioni prese:
 - Q&A della nuova versione di Snake (version 2.0)
-- Applicazione del prompt
 
 #Action items
 | Assegnato a | Compito | Deadline Simulata |
 | :-- | :-- | :-- |
-| Matteo | Traduzione verbale in inglese | 14/11/2025 |
+| Danilo | localizzazione del codice in più lingue tramite tecnologia i18n | 14/11/2025 |
 
 
 
@@ -197,18 +196,19 @@
 - Danilo Schiavone
 
 ##Decisioni prese:
-- Traduzione verbale in inglese
+- localizzazione del codice in più lingue tramite tecnologia i18n
 
 #Action items
 | Assegnato a | Compito | Deadline Simulata |
 | :-- | :-- | :-- |
-| Matteo | Traduzione tutti i files | 15/11/2025 |
+| Matteo | Traduzione tutti i files in inglese | 15/11/2025 |
+| Matteo | Traduzione verbale in inglese | 15/11/2025 |
 | Daniele | Conclusione verbale | 15/11/2025 |
 
 
 
 
-#Verbale Riunione di Stato - 15/11/2025 16:03
+#Verbale Riunione di Stato - 15/11/2025 16:23
 
 **Partecipanti:**
 - Daniele Marinelli
@@ -218,5 +218,5 @@
 - Danilo Schiavone
 
 ##Decisioni prese:
-- Creazione cartella internazionale e traduzione dei files in inglese
+- Creazione cartella internazionale e traduzione dei files in inglese, incluso verbale
 - Conclusione verbale
