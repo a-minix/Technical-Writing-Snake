@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Evolution</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="menu-screen" class="screen active">
+            <h1 class="game-title">🐍 SNAKE EVOLUTION</h1>
+            <p class="subtitle">Evolve to Become Legendary</p>
+            <button id="play-btn" class="btn btn-primary">Play Game</button>
+            <button id="leaderboard-btn" class="btn btn-secondary">Leaderboard</button>
+            <button id="settings-btn" class="btn btn-secondary">Settings</button>
+        </div>
+
+        <div id="game-screen" class="screen">
+            <div id="game-header">
+                <div class="score-display">
+                    <span>Score: <span id="current-score">0</span></span>
+                    <span>High Score: <span id="high-score">0</span></span>
+                </div>
+                <div class="evolution-display">
+                    <span id="evolution-stage">Base Stage</span>
+                    <span id="length-display">Length: 3</span>
+                </div>
+                <button id="pause-btn" class="btn btn-small">Pause</button>
+            </div>
+            <canvas id="game-canvas"></canvas>
+            <div id="touch-controls" class="touch-controls">
+                <button class="touch-btn" data-direction="up">↑</button>
+                <div class="touch-row">
+                    <button class="touch-btn" data-direction="left">←</button>
+                    <button class="touch-btn" data-direction="down">↓</button>
+                    <button class="touch-btn" data-direction="right">→</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="pause-screen" class="screen overlay">
+            <div class="modal">
+                <h2>Game Paused</h2>
+                <button id="resume-btn" class="btn btn-primary">Resume</button>
+                <button id="exit-btn" class="btn btn-secondary">Exit to Menu</button>
+            </div>
+        </div>
+
+        <div id="gameover-screen" class="screen overlay">
+            <div class="modal">
+                <h2>Game Over!</h2>
+                <p class="final-score">Score: <span id="final-score">0</span></p>
+                <p class="final-high-score">High Score: <span id="final-high-score">0</span></p>
+                <p class="final-evolution">Evolution: <span id="final-evolution">Base</span></p>
+                <input type="text" id="player-name" placeholder="Enter your name" maxlength="15">
+                <button id="replay-btn" class="btn btn-primary">Play Again</button>
+                <button id="menu-btn" class="btn btn-secondary">Main Menu</button>
+            </div>
+        </div>
+
+        <div id="leaderboard-screen" class="screen overlay">
+            <div class="modal leaderboard-modal">
+                <h2>🏆 Top 10 Scores</h2>
+                <div id="leaderboard-list"></div>
+                <button id="close-leaderboard-btn" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+
+        <div id="settings-screen" class="screen overlay">
+            <div class="modal">
+                <h2>Settings</h2>
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="sound-toggle" checked>
+                        Sound Effects
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="music-toggle" checked>
+                        Background Music
+                    </label>
+                </div>
+                <button id="close-settings-btn" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
