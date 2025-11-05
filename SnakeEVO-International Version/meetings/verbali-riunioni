@@ -1,0 +1,199 @@
+#Verbale Riunione di Stato - 05/11/2025 14:43
+
+**Partecipanti:**
+- Daniele Marinelli
+- Matteo Torchia
+- Amine Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+##Decisioni prese:
+- Creazione repository, ricerca info videogame "Snake" e file PRD
+- Creazione file verbale
+
+#Action items
+| Assegnato a | Compito | Deadline Simulata |
+| :-- | :-- | :-- |
+| Danilo | Creazione analisi funzionale | 06/11/2025 |
+| Amin | Creazione analisi tecnica | 06/11/2025 |
+| Daniele | Continuazione verbale giorno per giorno | 14/11/2025 |
+
+
+
+#Verbale Riunione di Stato - 06/11/2025 14:53
+
+**Partecipanti:**
+- Daniele Marinelli
+- Matteo Torchia
+- Amine Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+##Decisioni prese:
+- Creazione files analisi funzionale e analisi tecnica
+
+#Action items
+| Assegnato a | Compito | Deadline Simulata |
+| :-- | :-- | :-- |
+| Matteo | Creazione quality assurance | 07/11/2025 |
+
+
+
+#Verbale Riunione di Stato - 07/11/2025 15:03
+
+**Partecipanti:**
+- Daniele Marinelli
+- Matteo Torchia
+- Amine Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+##Decisioni prese:
+- Creazione quality assurance 
+
+#Action items
+| Assegnato a | Compito | Deadline Simulata |
+| :-- | :-- | :-- |
+| Ahmed | Q & A per Snake Evo 1.0 | 08/11/2025 |
+
+
+
+#Verbale Riunione di Stato - 08/11/2025 15:13
+
+**Partecipanti:**
+- Daniele Marinelli
+- Matteo Torchia
+- Amine Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+##Decisioni prese:
+- Q & A ci ha fatto modificare i tre documenti di Snake Evo 1.0 creandone di nuovi per Snake Evo 2.0
+
+#Action items
+| Assegnato a | Compito | Deadline Simulata |
+| :-- | :-- | :-- |
+| Amin | Sistemazione repository | 09/11/2025 |
+| Matteo | Eliminazione cartella Snake 1 | 09/11/2025 |
+
+
+
+#Verbale Riunione di Stato - 09/11/2025 15:23
+
+**Partecipanti:**
+- Daniele Marinelli
+- Matteo Torchia
+- Amine Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+##Decisioni prese:
+- Sistemazione repository e assegnazione ruoli per sviluppo gioco
+- Creazione file traduzione /meetings-minutes
+- Eliminazione cartella Snake 1
+
+#Action items
+| Assegnato a | Compito | Deadline Simulata |
+| :-- | :-- | :-- |
+| Ahmed | Creazione file ReadMe | 10/11/2025 |
+| Amin | Creazione account su replit per sviluppo | 10/11/2025 |
+| Danilo | Creazione documenti per devops e CI/CD | 10/11/2025 |
+
+
+
+#Verbale Riunione di Stato - 10/11/2025 15:33
+
+**Partecipanti:**
+- Daniele Marinelli
+- Matteo Torchia
+- Amine Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+##Decisioni prese:
+- Creazione file ReadMe
+- Creazione documenti per devops e CI/CD
+- Creazione account su replit per sviluppo
+
+#Action items
+| Assegnato a | Compito | Deadline Simulata |
+| :-- | :-- | :-- |
+| Amine | Sviluppo tramite replit del gioco | 11/11/2025 |
+| Danilo | Aggiunta di improvement | 11/11/2025 |
+
+
+#Verbale Riunione di Stato - 11/11/2025 15:43
+
+**Partecipanti:**
+- Daniele Marinelli
+- Matteo Torchia
+- Amine Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+##Decisioni prese:
+- Aggiunta di improvement, aggiunta di file log
+- Sviluppo tramite replit del gioco in versione preview nella versione 2.0, importando la repository da github
+
+#Action items
+| Assegnato a | Compito | Deadline Simulata |
+| :-- | :-- | :-- |
+| Danilo | Creazione prompt diretto per replit | 12/11/2025 |
+| Matteo | Sommario delle deliverables | 12/11/2025 |
+
+
+#Verbale Riunione di Stato - 12/11/2025 15:53
+
+**Partecipanti:**
+- Daniele Marinelli
+- Matteo Torchia
+- Amine Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+##Decisioni prese:
+- Creazione prompt diretto per replit
+- Applicazione del prompt
+- Sommario delle deliverables
+
+#Action items
+| Assegnato a | Compito | Deadline Simulata |
+| :-- | :-- | :-- |
+| Amine | Q&A della nuova versione di Snake (version 2.0) | 13/11/2025 |
+
+
+
+
+
+#Verbale Riunione di Stato - 13/11/2025 16:03
+
+**Partecipanti:**
+- Daniele Marinelli
+- Matteo Torchia
+- Amine Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+##Decisioni prese:
+- Q&A della nuova versione di Snake (version 2.0)
+- Applicazione del prompt
+
+#Action items
+| Assegnato a | Compito | Deadline Simulata |
+| :-- | :-- | :-- |
+| Matteo | Traduzione verbale in inglese | 14/11/2025 |
+
+
+
+#Verbale Riunione di Stato - 14/11/2025 16:03
+
+**Partecipanti:**
+- Daniele Marinelli
+- Matteo Torchia
+- Amine Mouzekki
+- Ahmed Rihane
+- Danilo Schiavone
+
+##Decisioni prese:
+- Traduzione verbale in inglese
+- Conclusione verbale
