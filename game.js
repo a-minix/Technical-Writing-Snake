@@ -34,11 +34,20 @@ class Game {
         this.musicContext = null;
         this.isGameActive = false;
         
+        this.stateManager = new StateManager();
+        this.collisionDetector = new OptimizedCollisionDetector();
+        this.inputValidator = new InputValidationPipeline();
+        this.storageManager = new SecureStorageManager();
+        this.profiler = new PerformanceProfiler();
+        
         this.initScreens();
         this.initControls();
         this.loadSettings();
         this.updateHighScore();
         this.initBackgroundMusic();
+        
+        console.log('Snake Evolution v2.0 initialized');
+        console.log('Features: State Machine, Spatial Hashing, Input Validation, Secure Storage, Performance Profiling');
     }
     
     initScreens() {
