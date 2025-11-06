@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Snake Evolution - A modern take on the classic Snake game with progressive evolution system">
+    <title>Snake Evolution v2.0</title>
+</head>
+<body>
+    <div id="app">
+        <div id="main-menu" class="scene active">
+            <h1>Snake Evolution</h1>
+            <div class="menu-content">
+                <input type="text" id="player-name" placeholder="Enter your name" maxlength="20" autocomplete="off">
+                <button id="start-button" class="btn btn-primary">Play</button>
+                <button id="leaderboard-button" class="btn btn-secondary">Leaderboard</button>
+            </div>
+        </div>
+
+        <div id="game-scene" class="scene">
+            <div class="game-header">
+                <div class="game-info">
+                    <span id="player-display"></span>
+                    <span id="score-display">Score: 0</span>
+                    <span id="stage-display">Stage: Base</span>
+                </div>
+            </div>
+            <canvas id="game-canvas"></canvas>
+            <div class="game-controls">
+                <button id="pause-button" class="btn btn-small">Pause</button>
+                <button id="quit-button" class="btn btn-small">Quit</button>
+            </div>
+        </div>
+
+        <div id="gameover-scene" class="scene">
+            <h1>Game Over!</h1>
+            <div class="gameover-content">
+                <p id="final-score">Score: 0</p>
+                <p id="final-stage">Stage Reached: Base</p>
+                <button id="play-again-button" class="btn btn-primary">Play Again</button>
+                <button id="menu-button" class="btn btn-secondary">Main Menu</button>
+            </div>
+        </div>
+
+        <div id="leaderboard-scene" class="scene">
+            <h1>Leaderboard</h1>
+            <div class="leaderboard-content">
+                <table id="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Score</th>
+                            <th>Stage</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                    </tbody>
+                </table>
+                <button id="back-button" class="btn btn-secondary">Back</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
